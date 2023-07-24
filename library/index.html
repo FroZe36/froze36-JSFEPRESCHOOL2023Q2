@@ -4,6 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/fav-ico/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/fav-ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/fav-ico/favicon-16x16.png">
+  <link rel="manifest" href="./assets/fav-ico/site.webmanifest">
   <link rel="stylesheet" href="./style/fonts.css">
   <link rel="stylesheet" href="./style/mynormalize.css">
   <link rel="stylesheet" href="./style/style.css">
@@ -11,7 +15,39 @@
 </head>
 
 <body>
+  <header class="header container">
+    <h1 class="header__title title">Brooklyn Public Library</h1>
+    <nav class="header__nav">
+      <ul class="header__list">
+        <li class="header__list-item text"><a class="header__list-link" href="#about">About</a></li>
+        <li class="header__list-item text"><a class="header__list-link" href="#favorites">Favorites</a></li>
+        <li class="header__list-item text"><a class="header__list-link" href="#coffee-shop">Coffee shop</a></li>
+        <li class="header__list-item text"><a class="header__list-link" href="#contacts">Contacts</a></li>
+        <li class="header__list-item text"><a class="header__list-link" href="#library">Library Card</a></li>
+      </ul>
+    </nav>
+    <img class="header__icon" src="./assets/img/icon_profile.svg" alt="header-profile-icon">
+  </header>
+  <section class="welcome container">
+    <div class="welcome__wrapper">
+      <p class="welcome__title title">Welcome<br>to the Brooklyn Library</p>
+    </div>
+  </section>
+  <main class="main">
+    <section class="about container" id="about">
+      <h2 class="about__title title title-section">About</h2>
+      <p class="about__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
+      <div class="about__container">
 
+      </div>
+      
+    </section>
+    <section class="favorites container" id="favorites"></section>
+    <section class="coffee-shop" id="coffee-shop"></section>
+    <section class="contacts" id="contacts"></section>
+    <section class="library" id="library"></section>
+  </main>
+  <footer class="footer"></footer>
 </body>
 
 </html>
