@@ -36,13 +36,87 @@
   <main class="main">
     <section class="about container" id="about">
       <h2 class="about__title title title-section">About</h2>
-      <p class="about__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
-      <div class="about__container">
-
+      <p class="about__text text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee
+        shop inside</p>
+      <div class="about__wrapper">
+        <img class="about__wrapper-img" src="./assets/img/image 1.jpg" alt="girl at library">
+        <img class="about__wrapper-img" src="./assets/img/image 2.jpg" alt="sculptures">
+        <img class="about__wrapper-img" src="./assets/img/image 3.jpg" alt="books at library">
       </div>
-      
+      <div class="about__container">
+        <div class="button-wrapper">
+          <button class="circle-button circle-button_active"></button>
+        </div>
+        <div class="button-wrapper">
+          <button class="circle-button"></button>
+        </div>
+        <div class="button-wrapper">
+          <button class="circle-button"></button>
+        </div>
+      </div>
     </section>
-    <section class="favorites container" id="favorites"></section>
+    <section class="favorites container" id="favorites">
+      <h2 class="favorites__title title title-section">Favorites</h2>
+      <h3 class="favorites__text text">Pick favorites of season</h3>
+      <div class="favorites__wrapper">
+        <input type="radio" id="winter" class="custom-checkbox" checked>
+        <label for="winter" class="favorites-label text favorites-label_active">Winter</label>
+        <input type="radio" id="spring" class="custom-checkbox">
+        <label for="spring" class="favorites-label text">Spring</label>
+        <input type="radio" id="summer" class="custom-checkbox">
+        <label for="summer" class="favorites-label text">Summer</label>
+        <input type="radio" id="autumn" class="custom-checkbox">
+        <label for="autumn" class="favorites-label text">Autumn</label>
+      </div>
+      <div class="favorites__container">
+        <div class="favorites__card">
+          <h3 class="favorites__card-title title">Staff Picks</h3>
+          <h4 class="favorites__card-name text">
+            The Book Eaters<br>
+            <span>By Sunyi Dean</span>
+          </h4>
+          <p class="favorites__card-description text">
+            An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son
+            from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a
+            strong, complex protagonist. Not for the faint of heart.
+          </p>
+          <button class="favorites__card-button title">Buy</button>
+        </div>
+        <div class="favorites__card">
+          <h3 class="favorites__card-title title">Staff Picks</h3>
+          <h4 class="favorites__card-name text">
+            Cackle<br>
+            <span>By Rachel Harrison</span>
+          </h4>
+          <p class="favorites__card-description text">
+            Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.
+          </p>
+          <button class="favorites__card-button title">Buy</button>
+        </div>
+        <div class="favorites__card">
+          <h3 class="favorites__card-title title">Staff Picks</h3>
+          <h4 class="favorites__card-name text">
+            Dante: Poet of the Secular World<br>
+            <span>By Erich Auerbach</span>
+          </h4>
+          <p class="favorites__card-description text">
+            Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.
+          </p>
+          <button class="favorites__card-button title">Buy</button>
+        </div>
+        <div class="favorites__card">
+          <h3 class="favorites__card-title title">Staff Picks</h3>
+          <h4 class="favorites__card-name text">
+            The Last Queen<br>
+            <span>By Clive Irving</span>
+          </h4>
+          <p class="favorites__card-description text">
+            A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.
+          </p>
+          <button class="favorites__card-button title favorites__card-active" disabled>Own</button>
+        </div>
+      </div>
+    </section>
     <section class="coffee-shop" id="coffee-shop"></section>
     <section class="contacts" id="contacts"></section>
     <section class="library" id="library"></section>
