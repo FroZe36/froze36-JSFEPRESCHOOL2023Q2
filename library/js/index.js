@@ -1,3 +1,4 @@
+'use strict'
 console.log(`
 Верстка валидная + 10;
 Верстка семантическая + 16;
@@ -27,3 +28,11 @@ console.table(
     return acc;
   }, {}),
 );
+
+const burgerMenu = document.querySelector('.header__burger');
+const headerList = document.querySelector('.header__list');
+const burgerLine = document.querySelectorAll('.burger-line');
+burgerMenu.addEventListener('click', () => {
+  headerList.classList.toggle('active');
+  burgerMenu.classList.toggle('active');
+})
