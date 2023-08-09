@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 console.log(`
 Верстка валидная + 10;
 Верстка семантическая + 16;
@@ -31,8 +31,15 @@ console.table(
 
 const burgerMenu = document.querySelector('.header__burger');
 const headerList = document.querySelector('.header__list');
-const burgerLine = document.querySelectorAll('.burger-line');
+const navItems = document.querySelectorAll('.header__list-item');
 burgerMenu.addEventListener('click', () => {
   headerList.classList.toggle('active');
   burgerMenu.classList.toggle('active');
-})
+  document.body.classList.toggle('no-scroll');
+});
+function close() {
+  headerList.classList.remove('active');
+  burgerMenu.classList.remove('active');
+  document.body.classList.remove('no-scroll');
+}
+navItems.forEach(item => item.addEventListener('click', close));

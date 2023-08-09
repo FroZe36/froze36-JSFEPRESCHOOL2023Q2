@@ -7,6 +7,9 @@
   --forum-font: 'Forum', cursive;
   --inter-font: 'Inter', sans-serif;
 }
+.no-scroll {
+  overflow-y: hidden;
+}
 .title {
   font-family: var(--forum-font);
   font-weight: 400;
@@ -49,7 +52,7 @@ button {
   gap: 30px;
 }
 .header__list.active {
-  transform: translateX(0%) scale(100%);
+  transform: translateX(0%);
 }
 .header__list-item {
   color: var(--white);
@@ -180,7 +183,10 @@ button {
   padding: 5px;
   cursor: pointer;
 }
-.button-wrapper_none {
+.button-wrapper:nth-child(4) {
+  display: none;
+}
+.button-wrapper:nth-child(5) {
   display: none;
 }
 .circle-button {
@@ -401,10 +407,9 @@ button {
   height: 1px;
   background-color: var(--gold);
 }
-.contacts__container {
-  background: url(../assets/img/map.png) no-repeat;
-  background-position: right;
-  background-size: 49.6%;
+.contacts__wrapper {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 40px;
 }
 .contacts__container-title {
@@ -449,6 +454,14 @@ button {
 .contacts__name_link {
   font-weight: 700;
 }
+.contacts__wrapper_img {
+  max-width: 696px;
+  width: 100%;
+  height: 414px;
+  background: url(../assets/img/map.png) no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
 .library-wrapper {
   display: flex;
   justify-content: space-between;
@@ -468,9 +481,8 @@ button {
   display: inline-flex;
   flex-direction: column;
   border: 3px solid var(--gold);
-  padding: 17px 17px 30px 17px;
+  padding: 17px 17px 25px 17px;
   width: 100%;
-  height: 386px;
 }
 .library__form-container {
   display: inline-flex;

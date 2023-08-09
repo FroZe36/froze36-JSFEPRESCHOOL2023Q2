@@ -1,26 +1,93 @@
-@media (max-width: 1260px) {
+@media (max-width: 1280px) {
   .favorites__container {
     justify-content: center;
   }
+  .contacts__wrapper {
+    flex-direction: column;
+    gap: 60px;
+  }
+  .contacts__wrapper_img {
+    align-self: center;
+  }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1060px) {
   .header__burger {
     display: flex;
   }
   .header__list {
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     width: 332px;
     height: 570px;
     background: var(--black);
-    transform: translateX(100%) scale(0%);
-    transition: transform 0.5s, scale 0.5s;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
     overflow: hidden;
     z-index: 4;
+  }
+}
+@media (max-width: 1024px) {
+  .about__wrapper {
+    margin-bottom: 25px;
+    justify-content: space-between;
+  }
+  .about__wrapper-block:nth-child(3) {
+    display: none;
+  }
+  .button-wrapper:nth-child(4) {
+    display: flex;
+  }
+  .coffee-shop__container {
+    flex-direction: column;
+  }
+  .coffee-shop__container-drinks {
+    margin-bottom: 40px;
+  }
+  .library.container {
+    padding: 0px 84px;
+  }
+  .library-wrapper {
+    flex-direction: column;
+  }
+  .library__form {
+    margin-bottom: 21px;
+  }
+  .library__container {
+    align-items: center;
+  }
+  .library__container-description {
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .about__wrapper {
+    justify-content: center;
+    position: relative;
+  }
+  .about__wrapper::before {
+    position: absolute;
+    content: url(../assets/img/svg/Carret_Left.svg);
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    left: 0;
+  }
+  .about__wrapper::after {
+    position: absolute;
+    content: url(../assets/img/svg/Carret_Right.svg);
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    right: 0;
+  }
+  .about__wrapper-block:nth-child(2) {
+    display: none;
+  }
+  .button-wrapper:nth-child(5) {
+    display: flex;
   }
 }
