@@ -4,7 +4,7 @@
   }
   .contacts__wrapper {
     flex-direction: column;
-    gap: 60px;
+    gap: 66px;
   }
   .contacts__wrapper_img {
     align-self: center;
@@ -32,7 +32,7 @@
 }
 @media (max-width: 1024px) {
   .about__wrapper {
-    margin-bottom: 25px;
+    margin-bottom: 21px;
     justify-content: space-between;
   }
   .about__wrapper-block:nth-child(3) {
@@ -41,11 +41,20 @@
   .button-wrapper:nth-child(4) {
     display: flex;
   }
+  .about__container {
+    margin-bottom: 36px;
+  }
+  .favorites__container {
+    margin-bottom: 40px;
+  }
+  .coffee-shop.container {
+    padding: 0 19px;
+  }
   .coffee-shop__container {
     flex-direction: column;
   }
   .coffee-shop__container-drinks {
-    margin-bottom: 40px;
+    margin-bottom: 41px;
   }
   .library.container {
     padding: 0px 84px;
@@ -57,6 +66,7 @@
     margin-bottom: 21px;
   }
   .library__container {
+    gap: 40px;
     align-items: center;
   }
   .library__container-description {
@@ -73,21 +83,33 @@
     content: url(../assets/img/svg/Carret_Left.svg);
     width: 24px;
     height: 24px;
-    top: 50%;
-    left: 0;
+    top: 51%;
+    left: 6%;
+    transform: translate(50%, 10%);
+    cursor: pointer;
   }
   .about__wrapper::after {
     position: absolute;
     content: url(../assets/img/svg/Carret_Right.svg);
     width: 24px;
     height: 24px;
-    top: 50%;
-    right: 0;
+    top: 51%;
+    right: 9%;
+    transform: translate(45%, 10%);
+    cursor: pointer;
   }
   .about__wrapper-block:nth-child(2) {
     display: none;
   }
   .button-wrapper:nth-child(5) {
     display: flex;
+  }
+  .rs {
+    transform: translateX(-2%);
+  }
+}
+@media (max-width: 760px) {
+  .custom-checkbox + label {
+    margin-right: calc((100% - 70%) / 4);
   }
 }
