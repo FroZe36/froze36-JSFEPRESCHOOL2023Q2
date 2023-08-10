@@ -1,3 +1,13 @@
+@media (hover: hover) {
+  .header__burger:hover > .burger-line {
+    background-color: var(--gold);
+  }
+}
+@media (hover: none) {
+  .header__burger:active > .burger-line {
+    background-color: var(--gold);
+  }
+}
 @media (max-width: 1280px) {
   .favorites__container {
     justify-content: center;
@@ -79,23 +89,19 @@
     position: relative;
   }
   .about__wrapper::before {
-    position: absolute;
     content: url(../assets/img/svg/Carret_Left.svg);
     width: 24px;
     height: 24px;
-    top: 51%;
-    left: 6%;
-    transform: translate(50%, 10%);
+    align-self: center;
+    transform: translate(-130%, 90%);
     cursor: pointer;
   }
   .about__wrapper::after {
-    position: absolute;
     content: url(../assets/img/svg/Carret_Right.svg);
     width: 24px;
     height: 24px;
-    top: 51%;
-    right: 9%;
-    transform: translate(45%, 10%);
+    align-self: center;
+    transform: translate(130%, 90%);
     cursor: pointer;
   }
   .about__wrapper-block:nth-child(2) {

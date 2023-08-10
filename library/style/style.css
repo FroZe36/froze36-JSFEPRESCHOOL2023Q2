@@ -86,16 +86,13 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: all 0.5s;
+  transition: all 0.5s ease-in;
 }
 .header__burger .burger-line:nth-of-type(2) {
   top: calc(50% - 10px);
 }
 .header__burger .burger-line:nth-of-type(3) {
   top: calc(50% + 10px);
-}
-.header__burger:hover > .burger-line {
-  background-color: var(--gold);
 }
 .header__burger.active .burger-line:nth-of-type(1) {
   display: none;
