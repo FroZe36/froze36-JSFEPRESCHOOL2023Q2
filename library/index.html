@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="./style/fonts.css">
   <link rel="stylesheet" href="./style/mynormalize.css">
   <link rel="stylesheet" href="./style/style.css">
+  <link rel="stylesheet" href="./style/media.css">
   <title>Library</title>
 </head>
 
@@ -31,6 +32,11 @@
       <path fill-rule="evenodd" clip-rule="evenodd"
         d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" />
     </svg>
+    <div class="header__burger">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </div>
   </header>
   <section class="welcome container">
     <div class="welcome__wrapper">
@@ -43,13 +49,25 @@
       <p class="about__text text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee
         shop inside</p>
       <div class="about__wrapper">
-        <img class="about__wrapper-img" src="./assets/img/image-1.jpg" alt="girl at library">
-        <img class="about__wrapper-img" src="./assets/img/image-2.jpg" alt="sculptures">
-        <img class="about__wrapper-img" src="./assets/img/image-3.jpg" alt="books at library">
+        <div class="about__wrapper-block">
+          <img class="about__wrapper-img" src="./assets/img/image-1.jpg" alt="girl at library">
+        </div>
+        <div class="about__wrapper-block">
+          <img class="about__wrapper-img" src="./assets/img/image-2.jpg" alt="sculptures">
+        </div>
+        <div class="about__wrapper-block">
+          <img class="about__wrapper-img" src="./assets/img/image-3.jpg" alt="books at library">
+        </div>
       </div>
       <div class="about__container">
         <div class="button-wrapper">
           <button class="circle-button circle-button_active"></button>
+        </div>
+        <div class="button-wrapper">
+          <button class="circle-button"></button>
+        </div>
+        <div class="button-wrapper">
+          <button class="circle-button"></button>
         </div>
         <div class="button-wrapper">
           <button class="circle-button"></button>
@@ -63,73 +81,84 @@
       <h2 class="favorites__title title title-section">Favorites</h2>
       <h3 class="favorites__text text">Pick favorites of season</h3>
       <div class="favorites__wrapper">
-        <input type="radio" id="winter" class="custom-checkbox" checked>
+        <input type="radio" id="winter" class="custom-checkbox" checked name="time of the year">
         <label for="winter" class="favorites-label text favorites-label_active">Winter</label>
-        <input type="radio" id="spring" class="custom-checkbox">
+        <input type="radio" id="spring" class="custom-checkbox" name="time of the year">
         <label for="spring" class="favorites-label text">Spring</label>
-        <input type="radio" id="summer" class="custom-checkbox">
+        <input type="radio" id="summer" class="custom-checkbox" name="time of the year">
         <label for="summer" class="favorites-label text">Summer</label>
-        <input type="radio" id="autumn" class="custom-checkbox">
+        <input type="radio" id="autumn" class="custom-checkbox" name="time of the year">
         <label for="autumn" class="favorites-label text">Autumn</label>
       </div>
       <div class="favorites__container">
         <div class="favorites__card">
-          <h3 class="favorites__card-title title">Staff Picks</h3>
-          <h4 class="favorites__card-name text">
-            The Book Eaters<br>
-            <span>By Sunyi Dean</span>
-          </h4>
-          <p class="favorites__card-description text">
-            An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son
-            from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a
-            strong, complex protagonist. Not for the faint of heart.
-          </p>
+          <div class="favorites__card-wrapper">
+            <h3 class="favorites__card-title title">Staff Picks</h3>
+            <h4 class="favorites__card-name text">
+              The Book Eaters<br>
+              <span>By Sunyi Dean</span>
+            </h4>
+            <p class="favorites__card-description text">
+              An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater
+              son
+              from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a
+              strong, complex protagonist. Not for the faint of heart.
+            </p>
+            <button class="favorites__card-button text button-hover">Buy</button>
+          </div>
           <img class="favorites__card-image" src="./assets/img/winter/sunyi_dean.jpg"
             alt="The Book Eaters By Sunyi Dean">
-          <button class="favorites__card-button text button-hover">Buy</button>
         </div>
         <div class="favorites__card">
-          <h3 class="favorites__card-title title">Staff Picks</h3>
-          <h4 class="favorites__card-name text">
-            Cackle<br>
-            <span>By Rachel Harrison</span>
-          </h4>
-          <p class="favorites__card-description text">
-            Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here -
-            where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful
-            witch.
-          </p>
+          <div class="favorites__card-wrapper">
+            <h3 class="favorites__card-title title">Staff Picks</h3>
+            <h4 class="favorites__card-name text">
+              Cackle<br>
+              <span>By Rachel Harrison</span>
+            </h4>
+            <p class="favorites__card-description text">
+              Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here
+              -
+              where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a
+              beautiful
+              witch.
+            </p>
+            <button class="favorites__card-button text button-hover">Buy</button>
+          </div>
           <img class="favorites__card-image" src="./assets/img/winter/rachel_harrison.jpg"
             alt="Cackle By Rachel Harrison">
-          <button class="favorites__card-button text button-hover">Buy</button>
         </div>
         <div class="favorites__card">
-          <h3 class="favorites__card-title title">Staff Picks</h3>
-          <h4 class="favorites__card-name text">
-            Dante: Poet of the Secular World<br>
-            <span>By Erich Auerbach</span>
-          </h4>
-          <p class="favorites__card-description text">
-            Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in
-            general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into
-            something of divine significance—an inspired introduction to Dante's main themes.
-          </p>
+          <div class="favorites__card-wrapper">
+            <h3 class="favorites__card-title title">Staff Picks</h3>
+            <h4 class="favorites__card-name text">
+              Dante: Poet of the Secular World<br>
+              <span>By Erich Auerbach</span>
+            </h4>
+            <p class="favorites__card-description text">
+              Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in
+              general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into
+              something of divine significance—an inspired introduction to Dante's main themes.
+            </p>
+            <button class="favorites__card-button text button-hover">Buy</button>
+          </div>
           <img class="favorites__card-image" src="./assets/img/winter/dante.jpg"
             alt="Dante: Poet of the Secular World By Erich Auerbach">
-          <button class="favorites__card-button text button-hover">Buy</button>
         </div>
         <div class="favorites__card">
-          <h3 class="favorites__card-title title">Staff Picks</h3>
-          <h4 class="favorites__card-name text">
-            The Last Queen<br>
-            <span>By Clive Irving</span>
-          </h4>
-          <p class="favorites__card-description text">
-            A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have
-            evolved and thrived as the modern world has changed around them.
-          </p>
+          <div class="favorites__card-wrapper">
+            <h3 class="favorites__card-title title">Staff Picks</h3>
+            <h4 class="favorites__card-name text">
+              The Last Queen<br>
+              <span>By Clive Irving</span>
+            </h4>
+            <p class="favorites__card-description text">
+              A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have
+              evolved and thrived as the modern world has changed around them.
+            </p>
+            <button class="favorites__card-button text favorites__card-active" disabled>Own</button>
+          </div>
           <img class="favorites__card-image" src="./assets/img/winter/queen.jpg" alt="The Last Queen By Clive Irving">
-          <button class="favorites__card-button text favorites__card-active" disabled>Own</button>
         </div>
       </div>
       <!-- Spring -->
@@ -403,19 +432,22 @@
     </section>
     <section class="contacts container" id="contacts">
       <h2 class="contacts__title title title-section">Our Contacts</h2>
-      <div class="contacts__container">
-        <h3 class="contacts__container-title text">For all Library inquiries:</h3>
-        <ul class="contacts__list">
-          <li class="contacts__list-item text">Please call&nbsp;<a class="contacts__list-item_link link"
-              href="tel:(617)730-2370">(617) 730-2370</a></li>
-          <li class="contacts__list-item text">For TTY service, please call&nbsp;<a
-              class="contacts__list-item_link link" href="tel:(617)730-2370">(617) 730-2370</a></li>
-          <li class="contacts__list-item text">Putterham Library:&nbsp;<a class="contacts__list-item_link link"
-              href="tel:(617)730-2385">(617) 730-2385</a></li>
-        </ul>
-        <h3 class="contacts__rank text">Senior Staff</h3>
-        <h3 class="contacts__name text">Library Director:&nbsp;<a class="contacts__name_link link"
-            href="mailto:AmandaHirst@gmail.com">Amanda Hirst</a></h3>
+      <div class="contacts__wrapper">
+        <div class="contacts__container">
+          <h3 class="contacts__container-title text">For all Library inquiries:</h3>
+          <ul class="contacts__list">
+            <li class="contacts__list-item text">Please call&nbsp;<a class="contacts__list-item_link link"
+                href="tel:(617)730-2370">(617) 730-2370</a></li>
+            <li class="contacts__list-item text">For TTY service, please call&nbsp;<a
+                class="contacts__list-item_link link" href="tel:(617)730-2370">(617) 730-2370</a></li>
+            <li class="contacts__list-item text">Putterham Library:&nbsp;<a class="contacts__list-item_link link"
+                href="tel:(617)730-2385">(617) 730-2385</a></li>
+          </ul>
+          <h3 class="contacts__rank text">Senior Staff</h3>
+          <h3 class="contacts__name text">Library Director:&nbsp;<a class="contacts__name_link link"
+              href="mailto:AmandaHirst@gmail.com">Amanda Hirst</a></h3>
+        </div>
+        <div class="contacts__wrapper_img"></div>
       </div>
     </section>
     <section class="library container" id="library">
