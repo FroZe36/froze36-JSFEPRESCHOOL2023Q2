@@ -161,10 +161,17 @@ button {
   line-height: 40px;
   margin-bottom: 20px;
 }
-.about__wrapper {
+.about__slider {
+  max-width: 1400px;
+  width: 100%;
+  overflow: hidden;
+}
+.about__wrapper-slides {
   display: flex;
   gap: 25px;
   margin-bottom: 35px;
+  width: 167.9%;
+  transform: translateX(-950px);
 }
 .about__wrapper-block {
   display: flex;
