@@ -37,3 +37,97 @@ document.addEventListener('click', e => {
     close();
   }
 });
+
+//---------------------------Slider---------------------------
+const slider = document.querySelector('.about__slider');
+const wrapperSlider = document.querySelector('.about__wrapper-slides');
+const slides = document.querySelectorAll('.about__wrapper-img');
+const slidesNavigation = document.querySelectorAll('.button-wrapper');
+const sliderBtnPrev = document.querySelector('.about__slider-array_left');
+const sliderBtnNext = document.querySelector('.about__slider-array_right');
+
+let sliderIndex = 0;
+let sliderWidth = 450;
+window.addEventListener('resize', e => {
+  sliderWidth = slider.clientWidth;
+  if (e.target.innerWidth > 1460) {
+    showSlide(sliderWidth + 25);
+  }
+  if (e.target.innerWidth < 1460) {
+    showSlide(sliderWidth / 3 - 17);
+  }
+  if (e.target.innerWidth <= 768) {
+    showSlide(sliderWidth);
+  }
+});
+sliderBtnPrev.addEventListener('click', prevSlide);
+sliderBtnNext.addEventListener('click', nextSlide);
+function nextSlide() {
+  sliderIndex++;
+  rollSlider();
+  activeSlide(sliderIndex);
+}
+function prevSlide() {
+  sliderIndex--;
+  rollSlider();
+  activeSlide(sliderIndex);
+}
+function showSlide(widthNum) {
+  slides.forEach(item => {
+    item.style.width = `${widthNum}px`;
+  });
+  rollSlider();
+}
+function rollSlider() {
+  if (sliderIndex <= 0) {
+    sliderIndex = 0;
+    sliderBtnPrev.disabled = true;
+  } else {
+    sliderBtnPrev.disabled = false;
+  }
+  if (sliderIndex >= slides.length - 1) {
+    sliderIndex = slides.length - 1;
+    sliderBtnNext.disabled = true;
+  } else {
+    sliderBtnNext.disabled = false;
+  }
+  if (sliderWidth > 450 && sliderIndex >= 3) {
+    sliderIndex = 2;
+    slidesNavigation[sliderIndex].firstElementChild.classList.add(
+      'circle-button_active',
+      (slidesNavigation[sliderIndex].firstElementChild.disabled = true),
+    );
+  }
+  if (sliderWidth <= 450) {
+    wrapperSlider.style.transform = `translateX(${-(
+      sliderWidth * sliderIndex
+    )}px)`;
+  } else
+    wrapperSlider.style.transform = `translateX(${-(
+      (sliderWidth / 3) *
+      sliderIndex
+    )}px)`;
+}
+rollSlider();
+function activeSlide(index) {
+  slidesNavigation.forEach(item =>
+    item.firstElementChild.classList.remove('circle-button_active'),
+  );
+  slidesNavigation[index].firstElementChild.classList.add(
+    'circle-button_active',
+    (slidesNavigation[index].firstElementChild.disabled = true),
+  );
+  slidesNavigation.forEach(item => {
+    if (!item.firstElementChild.classList.contains('circle-button_active')) {
+      item.firstElementChild.disabled = false;
+    }
+  });
+}
+activeSlide(sliderIndex);
+slidesNavigation.forEach((item, index) => {
+  item.addEventListener('click', () => {
+    sliderIndex = index;
+    rollSlider();
+    activeSlide(index);
+  });
+});
