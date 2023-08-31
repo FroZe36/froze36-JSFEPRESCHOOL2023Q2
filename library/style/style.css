@@ -218,6 +218,7 @@ button {
   opacity: 0;
 }
 .custom-checkbox + label {
+  min-width: 15%;
   display: inline-flex;
   align-items: center;
   user-select: none;
@@ -255,11 +256,14 @@ button {
   font-weight: 700;
 }
 .favorites__container {
-  display: grid;
+  height: 1150px;
+  margin-bottom: 63px;
+}
+.favorites__container-card {
+  display: none;
   grid-template-columns: repeat(auto-fit, 590px);
   gap: 40px;
   justify-content: space-between;
-  margin-bottom: 63px;
 }
 .favorites__card {
   position: relative;
@@ -334,9 +338,6 @@ button {
 .favorites__card-active {
   color: var(--gold);
   border: 1px solid var(--gold);
-}
-.favorites__container.display-none {
-  display: none;
 }
 .coffee-shop__text {
   color: var(--black);

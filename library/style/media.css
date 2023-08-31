@@ -10,6 +10,9 @@
 }
 @media (max-width: 1280px) {
   .favorites__container {
+    height: 2340px;
+  }
+  .favorites__container-card {
     justify-content: center;
   }
   .contacts__wrapper {
@@ -115,6 +118,11 @@
   }
   .button-wrapper:nth-child(5) {
     display: flex;
+  }
+  .favorites__wrapper {
+    position: sticky;
+    top: 10px;
+    z-index: 1;
   }
   .rs {
     transform: translateX(-2%);
