@@ -47,11 +47,19 @@ const sliderBtnPrev = document.querySelector('.about__slider-array_left');
 const sliderBtnNext = document.querySelector('.about__slider-array_right');
 
 let sliderIndex = 0;
-let sliderWidth = 450;
+let sliderWidth;
+if(window.innerWidth >= 1460) {
+  sliderWidth = 1400
+} else if (window.innerWidth <= 768) {
+  sliderWidth = 450
+} else {
+  sliderWidth = slider.clientWidth
+  showSlide(sliderWidth / 3 - 17)
+}
 window.addEventListener('resize', e => {
   sliderWidth = slider.clientWidth;
   if (e.target.innerWidth > 1460) {
-    showSlide(sliderWidth + 25);
+    showSlide(sliderWidth);
   }
   if (e.target.innerWidth < 1460) {
     showSlide(sliderWidth / 3 - 17);
@@ -98,15 +106,16 @@ function rollSlider() {
       (slidesNavigation[sliderIndex].firstElementChild.disabled = true),
     );
   }
-  if (sliderWidth <= 450) {
+  if (sliderWidth <= 450 && slider.clientWidth < 1400) {
     wrapperSlider.style.transform = `translateX(${-(
       sliderWidth * sliderIndex
     )}px)`;
-  } else
+  } else {
     wrapperSlider.style.transform = `translateX(${-(
-      (sliderWidth / 3) *
+      ((sliderWidth + 25) / 3) *
       sliderIndex
     )}px)`;
+  }
 }
 rollSlider();
 function activeSlide(index) {
@@ -318,3 +327,5 @@ function activeLabel(index) {
   );
   labelsOfWeather[index].classList.add('favorites-label_active');
 }
+
+//---------------------------Slider at Favorites---------------------------
