@@ -27,11 +27,23 @@
         <li class="header__list-item text"><a class="header__list-link link" href="#library">Library Card</a></li>
       </ul>
     </nav>
-    <svg xmlns="http://www.w3.org/2000/svg" class="header__icon" width="28" height="28" viewBox="0 0 28 28"
-      fill="white">
-      <path fill-rule="evenodd" clip-rule="evenodd"
-        d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" />
-    </svg>
+    <div class="header__wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" class="header__icon header__icon_logo" width="28" height="28"
+        viewBox="0 0 28 28" fill="white">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" />
+      </svg>
+      <div class="header__icon header__icon_name"></div>
+      <div class="dropdown-menu text">
+        <h3 class="dropdown-menu__title">Profile</h3>
+        <ul class="dropdown-menu__list">
+          <li class="dropdown-menu__list-item"><a class="dropdown-menu__list-item_link" href="#" data-auth="login">Log
+              In</a></li>
+          <li class="dropdown-menu__list-item"><a class="dropdown-menu__list-item_link" href="#"
+              data-auth="register">Register</a></li>
+        </ul>
+      </div>
+    </div>
     <div class="header__burger">
       <span class="burger-line"></span>
       <span class="burger-line"></span>
@@ -504,7 +516,24 @@
               <input class="library__form-input title" type="text" placeholder="Card number" required
                 pattern="/^[a-zA-Z0-9+_@-.]$/">
             </fieldset>
-            <button class="library__form-button text button-hover">Check the card</button>
+            <button type="submit" class="library__form-button text button-hover">Check the card</button>
+            <ul class="library__form-panel text">
+              <li class="library__form-panel__item">
+                <span class="library__form-panel__item_name">Visits</span>
+                <img src="./assets/img/svg/Union.svg" class="library__form-panel__item_img" alt="">
+                <span class="library__form-panel__item_sum">0</span>
+              </li>
+              <li class="library__form-panel__item">
+                <span class="library__form-panel__item_name">Bonuses</span>
+                <img src="./assets/img/svg/Star 1.svg" class="library__form-panel__item_img" alt="">
+                <span class="library__form-panel__item_sum">0</span>
+              </li>
+              <li class="library__form-panel__item">
+                <span class="library__form-panel__item_name">Books</span>
+                <img src="./assets/img/svg/book.svg" class="library__form-panel__item_img" alt="">
+                <span class="library__form-panel__item_sum">0</span>
+              </li>
+            </ul>
           </fieldset>
         </form>
         <div class="library__container">
@@ -575,6 +604,66 @@
       </ul>
     </div>
   </footer>
+  <div class="modal-rg">
+    <form class="modal-register">
+      <fieldset class="modal-register__wrapper">
+        <h3 class="modal-register__title title modal__title">Register</h3>
+        <button class="modal-register__btn-close modal__btn-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none" class="">
+            <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3" />
+            <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3" />
+          </svg>
+        </button>
+        <div class="modal-register__container modal__container">
+          <label class="modal-register__label text modal__label">
+            First name
+            <input type="text" class="modal-register__input modal__input" required>
+          </label>
+          <label class="modal-register__label text modal__label">
+            Last name
+            <input type="text" class="modal-register__input modal__input" required>
+          </label>
+          <label class="modal-register__label text modal__label">
+            E-mail
+            <input type="email" class="modal-register__input modal__input" required>
+          </label>
+          <label class="modal-register__label text modal__label">
+            Password
+            <input type="password" class="modal-register__input modal__input" required minlength="8">
+          </label>
+        </div>
+        <button type="submit" class="modal-register__button text modal__button">Sign Up</button>
+        <p class="modal-register__description text modal__description">Already have an account? <a href="#"
+            class="modal-register__link modal__link">Login</a></p>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-lg">
+    <form class="modal-login">
+      <fieldset class="modal-login__wrapper">
+        <h3 class="modal-login__title title modal__title">Login</h3>
+        <button class="modal-login__btn-close modal__btn-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+            <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3" />
+            <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3" />
+          </svg>
+        </button>
+        <div class="modal-login__container modal__container">
+          <label class="modal-login__label text modal__label">
+            E-mail or readers card
+            <input type="text" class="modal-login__input modal__input" required>
+          </label>
+          <label class="modal-login__label text modal__label">
+            Password
+            <input type="text" class="modal-login__input modal__input" required minlength="8">
+          </label>
+        </div>
+        <button type="submit" class="modal-login__button text modal__button">Log In</button>
+        <p class="modal-login__description text modal__description">Don’t have an account? <a href="#"
+            class="modal-login__link modal__link">Register</a></p>
+      </fieldset>
+    </form>
+  </div>
   <script src="./js/index.js"></script>
 </body>
 

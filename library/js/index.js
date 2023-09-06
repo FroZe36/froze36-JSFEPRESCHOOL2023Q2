@@ -36,6 +36,13 @@ document.addEventListener('click', e => {
   ) {
     close();
   }
+  if (
+    (!dropDownMenu.classList.contains('active') ||
+      !headerIcon.contains(e.target)) &&
+    !dropDownMenu.contains(e.target)
+  ) {
+    closeDropMenu();
+  }
 });
 
 //---------------------------Slider---------------------------
@@ -48,13 +55,13 @@ const sliderBtnNext = document.querySelector('.about__slider-array_right');
 
 let sliderIndex = 0;
 let sliderWidth;
-if(window.innerWidth >= 1460) {
-  sliderWidth = 1400
+if (window.innerWidth >= 1460) {
+  sliderWidth = 1400;
 } else if (window.innerWidth <= 768) {
-  sliderWidth = 450
+  sliderWidth = 450;
 } else {
-  sliderWidth = slider.clientWidth
-  showSlide(sliderWidth / 3 - 17)
+  sliderWidth = slider.clientWidth;
+  showSlide(sliderWidth / 3 - 17);
 }
 window.addEventListener('resize', e => {
   sliderWidth = slider.clientWidth;
@@ -144,7 +151,9 @@ slidesNavigation.forEach((item, index) => {
 //---------------------------Slider at Favorites---------------------------
 
 const labelsOfWeather = document.querySelectorAll('.favorites-label');
-const favoritesContainer = document.querySelectorAll('.favorites__container-card');
+const favoritesContainer = document.querySelectorAll(
+  '.favorites__container-card',
+);
 const btnFavoritesCard = document.querySelectorAll('.favorites__card-button');
 const winter = [
   {
@@ -328,4 +337,142 @@ function activeLabel(index) {
   labelsOfWeather[index].classList.add('favorites-label_active');
 }
 
-//---------------------------Slider at Favorites---------------------------
+//---------------------------Dropdown Menu---------------------------
+
+const headerIcon = document.querySelector('.header__icon');
+const dropDownMenu = document.querySelector('.dropdown-menu');
+headerIcon.addEventListener('click', openDropMenu);
+function closeDropMenu() {
+  dropDownMenu.classList.remove('active');
+}
+function openDropMenu() {
+  dropDownMenu.classList.add('active');
+}
+
+//---------------------------Modal Register--------------------------
+
+const modalRegister = document.querySelector('.modal-rg');
+const modalLogin = document.querySelector('.modal-lg');
+const formRegister = document.querySelector('.modal-register');
+const btnsLibrary = document.querySelectorAll('.library__container-button');
+const btnsModal = document.querySelectorAll('.dropdown-menu__list-item_link');
+
+btnsLibrary[0].addEventListener('click', () =>
+  openModal(modalRegister, 1000, 'flex'),
+);
+btnsModal[1].addEventListener('click', () =>
+  openModal(modalRegister, 1000, 'flex'),
+);
+function target(e, elem, btn) {
+  if (
+    e.target === elem ||
+    e.target.closest(btn)
+  ) {
+    closeModal(elem, 1000);
+  }
+}
+function openModal(elem, timeout, display) {
+  elem.style.opacity = 0;
+  elem.style.display = display || 'block';
+  elem.style.transition = `opacity ${timeout}ms`;
+  setTimeout(() => {
+    elem.style.opacity = 1;
+  }, 10);
+  if(dropDownMenu.classList.contains('active')) {
+    closeDropMenu();
+  }
+}
+function closeModal(elem, timeout) {
+  elem.style.opacity = 1;
+  elem.style.transition = `opacity ${timeout}ms`;
+  elem.style.opacity = 0;
+  setTimeout(() => {
+    elem.style.display = 'none';
+  }, timeout);
+}
+modalRegister.addEventListener('click', e => target(e, modalRegister, '.modal-register__btn-close'));
+
+//---------------------------Modal Login--------------------------
+
+btnsLibrary[1].addEventListener('click', () =>
+  openModal(modalLogin, 1000, 'flex'),
+);
+btnsModal[0].addEventListener('click', () =>
+  openModal(modalLogin, 1000, 'flex'),
+);
+modalLogin.addEventListener('click', e => target(e, modalLogin, '.modal-login__btn-close'));
+
+const buttonsBuy = document.querySelectorAll('.favorites__card-button');
+buttonsBuy.forEach(item => item.addEventListener('click', () => openModal(modalLogin, 1000, 'flex')))
+
+//---------------------------Register Form ---------------------------
+const headerLogo = document.querySelector('.header__icon_logo');
+const headerLogoWithName = document.querySelector('.header__icon_name');
+formRegister.addEventListener('submit', e => {
+  e.preventDefault();
+  let inputsRegisterForm = document.querySelectorAll('.modal-register__input');
+  function generateRandomId() {
+    const min = Math.pow(10, 15);
+    const max = Math.pow(10, 16) - 1;
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+  let cardId = generateRandomId();
+  console.log(`Ваш уникальный : ${cardId}`);
+  const obj = {
+    firstName: inputsRegisterForm[0].value,
+    lastName: inputsRegisterForm[1].value,
+    email: inputsRegisterForm[2].value,
+    password: inputsRegisterForm[3].value,
+    cardId,
+  };
+  let localArr = [];
+  if (localStorage.getItem('items')) {
+    localArr = JSON.parse(localStorage.getItem('items'));
+    console.log(localArr);
+    localArr.push(obj);
+    localStorage.setItem('items', JSON.stringify(localArr));
+  } else {
+    localArr.push(obj);
+    localStorage.setItem('items', JSON.stringify(localArr));
+  }
+  for (let i = 0; i < inputsRegisterForm.length; i++) {
+    inputsRegisterForm[i].value = '';
+  }
+  closeModal(modalRegister, 1000);
+  headerLogo.style.display = 'none';
+  let lastItemStorage = JSON.parse(localStorage.getItem('items')).slice(-1);
+  headerLogoWithName.textContent =
+    lastItemStorage[0].firstName.slice(0, 1) +
+    lastItemStorage[0].lastName.slice(0, 1);
+  headerLogoWithName.style.display = 'flex';
+});
+
+//---------------------------Library Form---------------------------
+
+const libraryForm = document.querySelector('.library__form');
+const libraryFormButton = document.querySelector('.library__form-button');
+const libraryFormPanel = document.querySelector('.library__form-panel');
+
+libraryForm.addEventListener('submit', e => {
+  e.preventDefault();
+  let inputsLibraryForm = document.querySelectorAll('.library__form-input');
+  const firstName = inputsLibraryForm[0].value;
+  const cardId = inputsLibraryForm[1].value;
+  JSON.parse(localStorage.getItem('items')).filter(item => {
+    if(item.firstName === firstName && item.cardId == cardId) {
+      libraryFormButton.style.display = 'none';
+      libraryFormPanel.style.display = 'flex';
+      inputsLibraryForm.forEach(item => item.style.color = 'var(--gold)')
+      setTimeout(() => {
+        inputsLibraryForm.forEach(item => {
+          item.style.color = 'var(--grey)';
+          item.value = '';
+        })
+        libraryFormPanel.style.display = 'none';
+        libraryFormButton.style.display = 'inline-block';
+      }, 10000)
+    }
+  })
+});
+
+//---------------------------Login Form---------------------------
