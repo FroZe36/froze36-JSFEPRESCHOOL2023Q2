@@ -12,6 +12,11 @@ console.log(`
 2.Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12
 3.На ширине экрана 768рх реализовано адаптивное меню +12
 `);
+//TASK 3
+console.log(`
+Все пункты которые указаны к заданию выполнены! Лишнего ничего не придумывал!
+Максимальная оценка за задание 200 баллов
+`);
 
 //---------------------------Burger menu---------------------------
 const burgerMenu = document.querySelector('.header__burger');
@@ -662,7 +667,7 @@ function logOut() {
     item.disabled = false;
     item.classList.remove('favorites__card-active');
     item.classList.add('button-hover');
-    item.addEventListener('click', wrappedOpenModal)
+    item.addEventListener('click', wrappedOpenModal);
   });
 }
 function wrappedBuyBook() {
