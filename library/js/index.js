@@ -473,6 +473,7 @@ formRegister.addEventListener('submit', e => {
   closeModal(modalRegister, 1000);
   headerLogo.style.display = 'none';
   let lastItemStorage = JSON.parse(localStorage.getItem('items')).slice(-1);
+  libraryFormPanelAmount[0].textContent = lastItemStorage[0].visits;
   modalProfileAmount[0].textContent = lastItemStorage[0].visits;
   headerLogoWithName.textContent =
     lastItemStorage[0].firstName.slice(0, 1) +
