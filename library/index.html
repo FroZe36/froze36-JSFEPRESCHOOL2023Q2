@@ -35,12 +35,20 @@
       </svg>
       <div class="header__icon header__icon_name"></div>
       <div class="dropdown-menu text">
-        <h3 class="dropdown-menu__title">Profile</h3>
-        <ul class="dropdown-menu__list">
-          <li class="dropdown-menu__list-item"><a class="dropdown-menu__list-item_link" href="#" data-auth="login">Log
+        <h3 class="dropdown-menu__title dropdown-title">Profile</h3>
+        <ul class="dropdown-menu__list dropdown-list">
+          <li class="dropdown-menu__list-item"><a class="dropdown-menu__list-item_link" href="#">Log
               In</a></li>
-          <li class="dropdown-menu__list-item"><a class="dropdown-menu__list-item_link" href="#"
-              data-auth="register">Register</a></li>
+          <li class="dropdown-menu__list-item"><a class="dropdown-menu__list-item_link" href="#">Register</a></li>
+        </ul>
+      </div>
+      <div class="dropdown-menu_auth text">
+        <h3 class="dropdown-menu_auth__title dropdown-title">Profile</h3>
+        <ul class="dropdown-menu_auth__list dropdown-list">
+          <li class="dropdown-menu_auth__list-item"><a class="dropdown-menu_auth__list-item_link" href="#">My
+              profile</a></li>
+          <li class="dropdown-menu_auth__list-item"><a class="dropdown-menu_auth__list-item_link" href="#">Log Out</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -520,17 +528,17 @@
             <ul class="library__form-panel text">
               <li class="library__form-panel__item">
                 <span class="library__form-panel__item_name">Visits</span>
-                <img src="./assets/img/svg/Union.svg" class="library__form-panel__item_img" alt="">
+                <img src="./assets/img/svg/Union.svg" class="library__form-panel__item_img" alt="logoPerson">
                 <span class="library__form-panel__item_sum">0</span>
               </li>
               <li class="library__form-panel__item">
                 <span class="library__form-panel__item_name">Bonuses</span>
-                <img src="./assets/img/svg/Star 1.svg" class="library__form-panel__item_img" alt="">
-                <span class="library__form-panel__item_sum">0</span>
+                <img src="./assets/img/svg/Star 1.svg" class="library__form-panel__item_img" alt="logoStar">
+                <span class="library__form-panel__item_sum">1240</span>
               </li>
               <li class="library__form-panel__item">
                 <span class="library__form-panel__item_name">Books</span>
-                <img src="./assets/img/svg/book.svg" class="library__form-panel__item_img" alt="">
+                <img src="./assets/img/svg/book.svg" class="library__form-panel__item_img" alt="logoBook">
                 <span class="library__form-panel__item_sum">0</span>
               </li>
             </ul>
@@ -608,7 +616,7 @@
     <form class="modal-register">
       <fieldset class="modal-register__wrapper">
         <h3 class="modal-register__title title modal__title">Register</h3>
-        <button class="modal-register__btn-close modal__btn-close">
+        <button class="modal-register__btn-close modal__btn-close" type="button">
           <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none" class="">
             <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3" />
             <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3" />
@@ -642,7 +650,7 @@
     <form class="modal-login">
       <fieldset class="modal-login__wrapper">
         <h3 class="modal-login__title title modal__title">Login</h3>
-        <button class="modal-login__btn-close modal__btn-close">
+        <button class="modal-login__btn-close modal__btn-close" type="button">
           <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
             <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3" />
             <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3" />
@@ -655,12 +663,116 @@
           </label>
           <label class="modal-login__label text modal__label">
             Password
-            <input type="text" class="modal-login__input modal__input" required minlength="8">
+            <input type="password" class="modal-login__input modal__input" required minlength="8">
           </label>
         </div>
         <button type="submit" class="modal-login__button text modal__button">Log In</button>
         <p class="modal-login__description text modal__description">Don’t have an account? <a href="#"
             class="modal-login__link modal__link">Register</a></p>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-prf">
+    <div class="modal-profile">
+      <button class="modal-profile__btn-close" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+          <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3" />
+          <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3" />
+        </svg>
+      </button>
+      <div class="modal-profile__aside">
+        <div class="modal-profile__aside-short-name text"></div>
+        <div class="modal-profile__aside-full-name text"></div>
+      </div>
+      <div class="modal-profile__main">
+        <h3 class="modal-profile__main-title title">My Profile</h3>
+        <ul class="modal-profile__main__list text">
+          <li class="modal-profile__main__item">
+            <span class="modal-profile__main__item_name">Visits</span>
+            <img src="./assets/img/svg/Union.svg" class="modal-profile__main__item_img" alt="logoPerson">
+            <span class="modal-profile__main__item_sum">0</span>
+          </li>
+          <li class="modal-profile__main__item">
+            <span class="modal-profile__main__item_name">Bonuses</span>
+            <img src="./assets/img/svg/Star 1.svg" class="modal-profile__main__item_img" alt="logoStar">
+            <span class="modal-profile__main__item_sum">1240</span>
+          </li>
+          <li class="modal-profile__main__item">
+            <span class="modal-profile__main__item_name">Books</span>
+            <img src="./assets/img/svg/book.svg" class="modal-profile__main__item_img" alt="logoBook">
+            <span class="modal-profile__main__item_sum">0</span>
+          </li>
+        </ul>
+        <div class="modal-profile__main-wrapper">
+          <h3 class="modal-profile__main__list_books-title text">Rented books</h3>
+          <ul class="modal-profile__main__list_books text">
+          </ul>
+        </div>
+        <div class="modal-profile__card text">
+          <span class="modal-profile__card-block text">Card number</span>
+          <span class="modal-profile__card-id text"></span>
+          <button class="modal-profile__card-copy" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+              <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5" />
+              <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black"
+                stroke-width="0.5" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-buy">
+    <form class="modal-buy__form">
+      <fieldset class="modal-buy__wrapper">
+        <h3 class="modal-buy__form-title title">Buy a library card</h3>
+        <button class="modal-buy__form-btn_close" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+            <path d="M2 16.8507L17 2" stroke="white" stroke-width="3" />
+            <path d="M2 2.14929L17 17" stroke="white" stroke-width="3" />
+          </svg>
+        </button>
+        <div class="modal-buy__form-wrapper">
+          <div class="modal-buy__form-list">
+            <label class="modal-buy__form-label text">
+              Bank card number
+              <input type="text" class="modal-buy__form-input" required minlength="16" maxlength="16">
+            </label>
+            <label class="modal-buy__form-label text">
+              Expiration code
+              <div class="modal-buy__form-input_wrapper">
+                <input type="text" class="modal-buy__form-input" required minlength="2" maxlength="2">
+                <input type="text" class="modal-buy__form-input" required minlength="2" maxlength="2">
+              </div>
+            </label>
+            <label class="modal-buy__form-label text">
+              CVC
+              <input type="password" class="modal-buy__form-input" required minlength="3" maxlength="3">
+            </label>
+            <label class="modal-buy__form-label text">
+              Cardholder name
+              <input type="text" class="modal-buy__form-input" required>
+            </label>
+            <label class="modal-buy__form-label text">
+              Postal code
+              <input type="text" class="modal-buy__form-input" required>
+            </label>
+            <label class="modal-buy__form-label text">
+              City / Town
+              <input type="text" class="modal-buy__form-input" required>
+            </label>
+            <div class="modal-buy__form-container">
+              <button class="modal-buy__form-btn_submit text" type="submit" disabled>Buy</button>
+              <span class="modal-buy__form-amount text">$25.00</span>
+            </div>
+          </div>
+          <p class="modal-buy__form-description text">If you are live, work, attend school, or pay property taxes in New
+            York
+            State, you can get a $25 digital library card right now using this online form. Visitors to New York State
+            can
+            also use this form to apply for a temporary card.
+          </p>
+        </div>
       </fieldset>
     </form>
   </div>

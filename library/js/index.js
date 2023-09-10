@@ -38,10 +38,17 @@ document.addEventListener('click', e => {
   }
   if (
     (!dropDownMenu.classList.contains('active') ||
-      !headerIcon.contains(e.target)) &&
+      !headerLogo.contains(e.target)) &&
     !dropDownMenu.contains(e.target)
   ) {
-    closeDropMenu();
+    closeDropMenu(dropDownMenu);
+  }
+  if (
+    (!dropDownMenuAuth.classList.contains('active') ||
+      !headerLogoWithName.contains(e.target)) &&
+    !dropDownMenuAuth.contains(e.target)
+  ) {
+    closeDropMenu(dropDownMenuAuth);
   }
 });
 
@@ -337,17 +344,27 @@ function activeLabel(index) {
   labelsOfWeather[index].classList.add('favorites-label_active');
 }
 
-//---------------------------Dropdown Menu---------------------------
+//---------------------------Dropdown Menu(Not Authorized)---------------------------
 
-const headerIcon = document.querySelector('.header__icon');
+const headerLogo = document.querySelector('.header__icon_logo');
 const dropDownMenu = document.querySelector('.dropdown-menu');
-headerIcon.addEventListener('click', openDropMenu);
-function closeDropMenu() {
-  dropDownMenu.classList.remove('active');
+headerLogo.addEventListener('click', () => openDropMenu(dropDownMenu));
+function closeDropMenu(elem) {
+  elem.classList.remove('active');
 }
-function openDropMenu() {
-  dropDownMenu.classList.add('active');
+function openDropMenu(elem) {
+  elem.classList.add('active');
 }
+//---------------------------Dropdown Menu(Authorized)---------------------------
+
+const headerLogoWithName = document.querySelector('.header__icon_name');
+const dropDownMenuAuth = document.querySelector('.dropdown-menu_auth');
+const dropDownMenuAuthTitle = document.querySelector(
+  '.dropdown-menu_auth__title',
+);
+headerLogoWithName.addEventListener('click', () =>
+  openDropMenu(dropDownMenuAuth),
+);
 
 //---------------------------Modal Register--------------------------
 
@@ -356,7 +373,7 @@ const modalLogin = document.querySelector('.modal-lg');
 const formRegister = document.querySelector('.modal-register');
 const btnsLibrary = document.querySelectorAll('.library__container-button');
 const btnsModal = document.querySelectorAll('.dropdown-menu__list-item_link');
-
+let account = {};
 btnsLibrary[0].addEventListener('click', () =>
   openModal(modalRegister, 1000, 'flex'),
 );
@@ -364,10 +381,7 @@ btnsModal[1].addEventListener('click', () =>
   openModal(modalRegister, 1000, 'flex'),
 );
 function target(e, elem, btn) {
-  if (
-    e.target === elem ||
-    e.target.closest(btn)
-  ) {
+  if (e.target === elem || e.target.closest(btn)) {
     closeModal(elem, 1000);
   }
 }
@@ -378,8 +392,11 @@ function openModal(elem, timeout, display) {
   setTimeout(() => {
     elem.style.opacity = 1;
   }, 10);
-  if(dropDownMenu.classList.contains('active')) {
-    closeDropMenu();
+  if (dropDownMenu.classList.contains('active')) {
+    closeDropMenu(dropDownMenu);
+  }
+  if (dropDownMenuAuth.classList.contains('active')) {
+    closeDropMenu(dropDownMenuAuth);
   }
 }
 function closeModal(elem, timeout) {
@@ -390,7 +407,9 @@ function closeModal(elem, timeout) {
     elem.style.display = 'none';
   }, timeout);
 }
-modalRegister.addEventListener('click', e => target(e, modalRegister, '.modal-register__btn-close'));
+modalRegister.addEventListener('click', e =>
+  target(e, modalRegister, '.modal-register__btn-close'),
+);
 
 //---------------------------Modal Login--------------------------
 
@@ -400,39 +419,47 @@ btnsLibrary[1].addEventListener('click', () =>
 btnsModal[0].addEventListener('click', () =>
   openModal(modalLogin, 1000, 'flex'),
 );
-modalLogin.addEventListener('click', e => target(e, modalLogin, '.modal-login__btn-close'));
+modalLogin.addEventListener('click', e =>
+  target(e, modalLogin, '.modal-login__btn-close'),
+);
 
 const buttonsBuy = document.querySelectorAll('.favorites__card-button');
-buttonsBuy.forEach(item => item.addEventListener('click', () => openModal(modalLogin, 1000, 'flex')))
+function wrappedOpenModal() {
+  openModal(modalLogin, 1000, 'flex');
+}
+buttonsBuy.forEach(item => item.addEventListener('click', wrappedOpenModal));
 
 //---------------------------Register Form ---------------------------
-const headerLogo = document.querySelector('.header__icon_logo');
-const headerLogoWithName = document.querySelector('.header__icon_name');
 formRegister.addEventListener('submit', e => {
   e.preventDefault();
   let inputsRegisterForm = document.querySelectorAll('.modal-register__input');
   function generateRandomId() {
-    const min = Math.pow(10, 15);
-    const max = Math.pow(10, 16) - 1;
-    return Math.floor(Math.random() * (max - min + 1) + min);
+    const min = Math.pow(16, 8);
+    const max = Math.pow(16, 9) - 1;
+    const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+    console.log(randomNum);
+    const cardNumber = randomNum.toString(16).toUpperCase();
+    return cardNumber;
   }
-  let cardId = generateRandomId();
-  console.log(`Ваш уникальный : ${cardId}`);
-  const obj = {
+  let cardNumber = generateRandomId();
+  console.log(`Ваш уникальный : ${cardNumber}`);
+  account = {
     firstName: inputsRegisterForm[0].value,
     lastName: inputsRegisterForm[1].value,
     email: inputsRegisterForm[2].value,
     password: inputsRegisterForm[3].value,
-    cardId,
+    cardNumber,
+    visits: 1,
+    subscription: false,
+    books: [],
   };
   let localArr = [];
   if (localStorage.getItem('items')) {
     localArr = JSON.parse(localStorage.getItem('items'));
-    console.log(localArr);
-    localArr.push(obj);
+    localArr.push(account);
     localStorage.setItem('items', JSON.stringify(localArr));
   } else {
-    localArr.push(obj);
+    localArr.push(account);
     localStorage.setItem('items', JSON.stringify(localArr));
   }
   for (let i = 0; i < inputsRegisterForm.length; i++) {
@@ -441,10 +468,16 @@ formRegister.addEventListener('submit', e => {
   closeModal(modalRegister, 1000);
   headerLogo.style.display = 'none';
   let lastItemStorage = JSON.parse(localStorage.getItem('items')).slice(-1);
+  modalProfileAmount[0].textContent = lastItemStorage[0].visits;
   headerLogoWithName.textContent =
     lastItemStorage[0].firstName.slice(0, 1) +
     lastItemStorage[0].lastName.slice(0, 1);
+  dropDownMenuAuthTitle.textContent = lastItemStorage[0].cardNumber;
+  headerLogoWithName.title =
+    lastItemStorage[0].firstName + ' ' + lastItemStorage[0].lastName;
   headerLogoWithName.style.display = 'flex';
+  logProfile(lastItemStorage[0]);
+  changeCheckCard(lastItemStorage[0]);
 });
 
 //---------------------------Library Form---------------------------
@@ -452,27 +485,265 @@ formRegister.addEventListener('submit', e => {
 const libraryForm = document.querySelector('.library__form');
 const libraryFormButton = document.querySelector('.library__form-button');
 const libraryFormPanel = document.querySelector('.library__form-panel');
-
+const libraryFormPanelAmount = document.querySelectorAll(
+  '.library__form-panel__item_sum',
+);
+let inputsLibraryForm = document.querySelectorAll('.library__form-input');
 libraryForm.addEventListener('submit', e => {
   e.preventDefault();
-  let inputsLibraryForm = document.querySelectorAll('.library__form-input');
   const firstName = inputsLibraryForm[0].value;
-  const cardId = inputsLibraryForm[1].value;
+  const cardNumber = inputsLibraryForm[1].value;
   JSON.parse(localStorage.getItem('items')).filter(item => {
-    if(item.firstName === firstName && item.cardId == cardId) {
+    if (item.firstName === firstName && item.cardNumber === cardNumber) {
       libraryFormButton.style.display = 'none';
+      libraryFormPanelAmount[0].textContent = item.visits;
+      libraryFormPanelAmount[2].textContent = item.books.length;
       libraryFormPanel.style.display = 'flex';
-      inputsLibraryForm.forEach(item => item.style.color = 'var(--gold)')
+      inputsLibraryForm.forEach(item => (item.style.color = 'var(--gold)'));
       setTimeout(() => {
         inputsLibraryForm.forEach(item => {
           item.style.color = 'var(--grey)';
           item.value = '';
-        })
+        });
         libraryFormPanel.style.display = 'none';
         libraryFormButton.style.display = 'inline-block';
-      }, 10000)
+      }, 10000);
     }
-  })
+  });
 });
+function changeCheckCard(elem) {
+  libraryFormButton.style.display = 'none';
+  libraryFormPanel.style.display = 'flex';
+  inputsLibraryForm[0].placeholder = elem.firstName;
+  inputsLibraryForm[1].placeholder = elem.cardNumber;
+  inputsLibraryForm.forEach(item => item.classList.add('active'));
+  libraryFormPanelAmount[2].textContent = elem.books.length;
+}
 
 //---------------------------Login Form---------------------------
+
+const loginForm = document.querySelector('.modal-login');
+loginForm.addEventListener('submit', e => {
+  e.preventDefault();
+  let inputsLoginForm = document.querySelectorAll('.modal-login__input');
+  const emailOrCardNumber = inputsLoginForm[0].value;
+  const password = inputsLoginForm[1].value;
+  let localArr = [];
+  JSON.parse(localStorage.getItem('items')).filter(item => {
+    for (let i = 0; i < inputsLoginForm.length; i++) {
+      inputsLoginForm[i].value = '';
+    }
+    if (
+      (item.email === emailOrCardNumber ||
+        item.cardNumber === emailOrCardNumber) &&
+      item.password === password
+    ) {
+      localArr = JSON.parse(localStorage.getItem('items')).map(copy => {
+        if (item.cardNumber === copy.cardNumber) {
+          account = { ...copy, visits: (copy.visits += 1) };
+          modalProfileAmount[0].textContent = account.visits;
+          libraryFormPanelAmount[0].textContent = account.visits;
+          return account;
+        } else {
+          return copy;
+        }
+      });
+      localStorage.setItem('items', JSON.stringify(localArr));
+      closeModal(modalLogin, 1000);
+      headerLogo.style.display = 'none';
+      headerLogoWithName.textContent =
+        item.firstName.slice(0, 1) + item.lastName.slice(0, 1);
+      dropDownMenuAuthTitle.textContent = item.cardNumber;
+      headerLogoWithName.title = item.firstName + ' ' + item.lastName;
+      headerLogoWithName.style.display = 'flex';
+      logProfile(item);
+      changeCheckCard(item);
+    }
+  });
+});
+
+//---------------------------Authorized---------------------------
+let modalProfileShortName = document.querySelector(
+  '.modal-profile__aside-short-name',
+);
+let modalProfileFullName = document.querySelector(
+  '.modal-profile__aside-full-name',
+);
+let modalProfileCardId = document.querySelector('.modal-profile__card-id');
+const btnsModalAuth = document.querySelectorAll(
+  '.dropdown-menu_auth__list-item_link',
+);
+let modalProfileAmount = document.querySelectorAll(
+  '.modal-profile__main__item_sum',
+);
+let modalProfileListBooks = document.querySelector(
+  '.modal-profile__main__list_books',
+);
+const favoritesCardNames = document.querySelectorAll('.favorites__card-name');
+const modalProfile = document.querySelector('.modal-prf');
+const modalBuyCard = document.querySelector('.modal-buy');
+const btnCopyCardId = document.querySelector('.modal-profile__card-copy');
+
+btnCopyCardId.addEventListener('click', copyCardId);
+modalProfile.addEventListener('click', e =>
+  target(e, modalProfile, '.modal-profile__btn-close'),
+);
+modalBuyCard.addEventListener('click', e =>
+  target(e, modalBuyCard, '.modal-buy__form-btn_close'),
+);
+btnsModalAuth[0].addEventListener('click', () =>
+  openModal(modalProfile, 1000, 'flex'),
+);
+btnsModalAuth[1].addEventListener('click', logOut);
+
+function wrappedOpenBuyModal() {
+  openModal(modalBuyCard, 1000, 'flex');
+}
+function copyCardId() {
+  const transformTextToTextArea = document.createElement('textarea');
+  transformTextToTextArea.textContent = modalProfileCardId.value;
+  document.body.appendChild(transformTextToTextArea);
+  transformTextToTextArea.select();
+  document.execCommand('copy');
+  document.body.removeChild(transformTextToTextArea);
+  alert(`Your text copied: ${modalProfileCardId.value}`);
+}
+function logProfile(elem) {
+  buttonsBuy.forEach(item =>
+    item.removeEventListener('click', wrappedOpenModal),
+  );
+  if (elem.subscription !== true) {
+    buttonsBuy.forEach(item =>
+      item.addEventListener('click', wrappedOpenBuyModal),
+    );
+  } else {
+    buttonsBuy.forEach(item => item.addEventListener('click', buyBook));
+  }
+  modalProfileShortName.textContent =
+    elem.firstName.slice(0, 1) + elem.lastName.slice(0, 1);
+  modalProfileFullName.textContent = elem.firstName + ' ' + elem.lastName;
+  modalProfileCardId.textContent = elem.cardNumber;
+  modalProfileCardId.value = elem.cardNumber;
+  modalProfileAmount[2].textContent = elem.books.length;
+  favoritesCardNames.forEach((el, i) => {
+    if (
+      el.childNodes[0].textContent.trim() +
+        ',' +
+        el.childNodes[3].textContent.slice(2) ===
+      elem.books[i]
+    ) {
+      changeBtnBuy(el.nextElementSibling.nextElementSibling);
+    }
+  });
+  elem.books.forEach((item, i) => {
+    let itemBook = document.createElement('li');
+    itemBook.textContent = item;
+    modalProfileListBooks.appendChild(itemBook);
+  });
+}
+function logOut() {
+  if (account.subscription !== true) {
+    buttonsBuy.forEach(item =>
+      item.removeEventListener('click', wrappedOpenBuyModal),
+    );
+  } else {
+    buttonsBuy.forEach(item => item.removeEventListener('click', buyBook));
+  }
+  closeDropMenu(dropDownMenuAuth);
+  headerLogoWithName.style.display = 'none';
+  headerLogo.style.display = 'flex';
+  libraryFormButton.style.display = 'inline-flex';
+  libraryFormPanel.style.display = 'none';
+  inputsLibraryForm[0].placeholder = "Reader's name";
+  inputsLibraryForm[1].placeholder = 'Card number';
+  inputsLibraryForm.forEach(item => item.classList.remove('active'));
+  buttonsBuy.forEach(item => {
+    item.textContent = 'Buy';
+    item.disabled = false;
+    item.classList.remove('favorites__card-active');
+    item.classList.add('button-hover');
+    item.addEventListener('click', wrappedOpenModal)
+  });
+}
+function wrappedBuyBook() {
+  buyBook(e);
+}
+function buyBook(e) {
+  let target = e.target.previousElementSibling.previousElementSibling;
+  let myText =
+    target.childNodes[0].textContent.trim() +
+    ',' +
+    target.childNodes[3].textContent.slice(2);
+  let copy = account;
+  let localArr = JSON.parse(localStorage.getItem('items')).map(item => {
+    if (item.cardNumber === account.cardNumber) {
+      account = { books: item.books.push(myText), ...item };
+      changeBtnBuy(e.target);
+      return account;
+    } else {
+      return item;
+    }
+  });
+  modalProfileAmount[2].textContent = account.books.length;
+  libraryFormPanelAmount[2].textContent = account.books.length;
+  account.books.forEach((item, i) => {
+    let itemBook = document.createElement('li');
+    itemBook.textContent = item;
+    modalProfileListBooks.appendChild(itemBook);
+  });
+  localStorage.setItem('items', JSON.stringify(localArr));
+}
+function changeBtnBuy(e) {
+  e.textContent = 'Own';
+  e.disabled = true;
+  e.classList.remove('button-hover');
+  e.classList.add('favorites__card-active');
+}
+
+//---------------------------Form BuyCard---------------------------
+
+const formBuyCard = document.querySelector('.modal-buy__form');
+const formBuyCardInputs = document.querySelectorAll('.modal-buy__form-input');
+const formBuyCardBtnSubmit = document.querySelector(
+  '.modal-buy__form-btn_submit',
+);
+formBuyCardInputs.forEach(item =>
+  item.addEventListener('change', () => {
+    if (
+      formBuyCardInputs[0].value !== '' &&
+      formBuyCardInputs[1].value !== '' &&
+      formBuyCardInputs[2].value !== '' &&
+      formBuyCardInputs[3].value !== '' &&
+      formBuyCardInputs[4].value !== '' &&
+      formBuyCardInputs[5].value !== '' &&
+      formBuyCardInputs[6].value !== ''
+    ) {
+      formBuyCardBtnSubmit.disabled = false;
+      formBuyCardBtnSubmit.classList.add('button-hover');
+    } else {
+      formBuyCardBtnSubmit.disabled = true;
+      formBuyCardBtnSubmit.classList.remove('button-hover');
+    }
+  }),
+);
+
+formBuyCard.addEventListener('submit', e => {
+  e.preventDefault();
+  for (let i = 0; i < formBuyCardInputs.length; i++) {
+    formBuyCardInputs[i].value = '';
+  }
+  let localArr = JSON.parse(localStorage.getItem('items')).map(item => {
+    if (item.cardNumber === account.cardNumber) {
+      account = { ...item, subscription: !item.subscription };
+      return account;
+    } else {
+      return item;
+    }
+  });
+  localStorage.setItem('items', JSON.stringify(localArr));
+  closeModal(modalBuyCard, 1000);
+  buttonsBuy.forEach(item => {
+    item.removeEventListener('click', wrappedOpenBuyModal);
+    item.addEventListener('click', buyBook);
+  });
+});
