@@ -27,11 +27,31 @@
         <li class="header__list-item text"><a class="header__list-link link" href="#library">Library Card</a></li>
       </ul>
     </nav>
-    <svg xmlns="http://www.w3.org/2000/svg" class="header__icon" width="28" height="28" viewBox="0 0 28 28"
-      fill="white">
-      <path fill-rule="evenodd" clip-rule="evenodd"
-        d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" />
-    </svg>
+    <div class="header__wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" class="header__icon header__icon_logo" width="28" height="28"
+        viewBox="0 0 28 28" fill="white">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" />
+      </svg>
+      <div class="header__icon header__icon_name"></div>
+      <div class="dropdown-menu text">
+        <h3 class="dropdown-menu__title dropdown-title">Profile</h3>
+        <ul class="dropdown-menu__list dropdown-list">
+          <li class="dropdown-menu__list-item"><a class="dropdown-menu__list-item_link" href="#">Log
+              In</a></li>
+          <li class="dropdown-menu__list-item"><a class="dropdown-menu__list-item_link" href="#">Register</a></li>
+        </ul>
+      </div>
+      <div class="dropdown-menu_auth text">
+        <h3 class="dropdown-menu_auth__title dropdown-title">Profile</h3>
+        <ul class="dropdown-menu_auth__list dropdown-list">
+          <li class="dropdown-menu_auth__list-item"><a class="dropdown-menu_auth__list-item_link" href="#">My
+              profile</a></li>
+          <li class="dropdown-menu_auth__list-item"><a class="dropdown-menu_auth__list-item_link" href="#">Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="header__burger">
       <span class="burger-line"></span>
       <span class="burger-line"></span>
@@ -48,15 +68,15 @@
       <h2 class="about__title title title-section">About</h2>
       <p class="about__text text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee
         shop inside</p>
-      <div class="about__wrapper">
-        <div class="about__wrapper-block">
+      <div class="about__slider">
+        <button class="about__slider-array_left"></button>
+        <button class="about__slider-array_right"></button>
+        <div class="about__wrapper-slides">
           <img class="about__wrapper-img" src="./assets/img/image-1.jpg" alt="girl at library">
-        </div>
-        <div class="about__wrapper-block">
           <img class="about__wrapper-img" src="./assets/img/image-2.jpg" alt="sculptures">
-        </div>
-        <div class="about__wrapper-block">
           <img class="about__wrapper-img" src="./assets/img/image-3.jpg" alt="books at library">
+          <img class="about__wrapper-img" src="./assets/img/image-4.jpg" alt="books and stair at library">
+          <img class="about__wrapper-img" src="./assets/img/image-5.jpg" alt="building with columns">
         </div>
       </div>
       <div class="about__container">
@@ -91,263 +111,304 @@
         <label for="autumn" class="favorites-label text">Autumn</label>
       </div>
       <div class="favorites__container">
-        <div class="favorites__card">
-          <div class="favorites__card-wrapper">
-            <h3 class="favorites__card-title title">Staff Picks</h3>
-            <h4 class="favorites__card-name text">
-              The Book Eaters<br>
-              <span>By Sunyi Dean</span>
-            </h4>
-            <p class="favorites__card-description text">
-              An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater
-              son
-              from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a
-              strong, complex protagonist. Not for the faint of heart.
-            </p>
-            <button class="favorites__card-button text button-hover">Buy</button>
+        <div class="favorites__container-card">
+          <div class="favorites__card">
+            <div class="favorites__card-wrapper">
+              <h3 class="favorites__card-title title">Staff Picks</h3>
+              <h4 class="favorites__card-name text">
+                The Book Eaters<br>
+                <span>By Sunyi Dean</span>
+              </h4>
+              <p class="favorites__card-description text">
+                An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater
+                son
+                from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and
+                a
+                strong, complex protagonist. Not for the faint of heart.
+              </p>
+              <button class="favorites__card-button text button-hover">Buy</button>
+            </div>
+            <img class="favorites__card-image" src="./assets/img/winter/sunyi_dean.jpg"
+              alt="The Book Eaters By Sunyi Dean">
           </div>
-          <img class="favorites__card-image" src="./assets/img/winter/sunyi_dean.jpg"
-            alt="The Book Eaters By Sunyi Dean">
-        </div>
-        <div class="favorites__card">
-          <div class="favorites__card-wrapper">
-            <h3 class="favorites__card-title title">Staff Picks</h3>
-            <h4 class="favorites__card-name text">
-              Cackle<br>
-              <span>By Rachel Harrison</span>
-            </h4>
-            <p class="favorites__card-description text">
-              Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here
-              -
-              where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a
-              beautiful
-              witch.
-            </p>
-            <button class="favorites__card-button text button-hover">Buy</button>
+          <div class="favorites__card">
+            <div class="favorites__card-wrapper">
+              <h3 class="favorites__card-title title">Staff Picks</h3>
+              <h4 class="favorites__card-name text">
+                Cackle<br>
+                <span>By Rachel Harrison</span>
+              </h4>
+              <p class="favorites__card-description text">
+                Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than
+                here
+                -
+                where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a
+                beautiful
+                witch.
+              </p>
+              <button class="favorites__card-button text button-hover">Buy</button>
+            </div>
+            <img class="favorites__card-image" src="./assets/img/winter/rachel_harrison.jpg"
+              alt="Cackle By Rachel Harrison">
           </div>
-          <img class="favorites__card-image" src="./assets/img/winter/rachel_harrison.jpg"
-            alt="Cackle By Rachel Harrison">
-        </div>
-        <div class="favorites__card">
-          <div class="favorites__card-wrapper">
-            <h3 class="favorites__card-title title">Staff Picks</h3>
-            <h4 class="favorites__card-name text">
-              Dante: Poet of the Secular World<br>
-              <span>By Erich Auerbach</span>
-            </h4>
-            <p class="favorites__card-description text">
-              Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in
-              general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into
-              something of divine significance—an inspired introduction to Dante's main themes.
-            </p>
-            <button class="favorites__card-button text button-hover">Buy</button>
+          <div class="favorites__card">
+            <div class="favorites__card-wrapper">
+              <h3 class="favorites__card-title title">Staff Picks</h3>
+              <h4 class="favorites__card-name text">
+                Dante: Poet of the Secular World<br>
+                <span>By Erich Auerbach</span>
+              </h4>
+              <p class="favorites__card-description text">
+                Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in
+                general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into
+                something of divine significance—an inspired introduction to Dante's main themes.
+              </p>
+              <button class="favorites__card-button text button-hover">Buy</button>
+            </div>
+            <img class="favorites__card-image" src="./assets/img/winter/dante.jpg"
+              alt="Dante: Poet of the Secular World By Erich Auerbach">
           </div>
-          <img class="favorites__card-image" src="./assets/img/winter/dante.jpg"
-            alt="Dante: Poet of the Secular World By Erich Auerbach">
-        </div>
-        <div class="favorites__card">
-          <div class="favorites__card-wrapper">
-            <h3 class="favorites__card-title title">Staff Picks</h3>
-            <h4 class="favorites__card-name text">
-              The Last Queen<br>
-              <span>By Clive Irving</span>
-            </h4>
-            <p class="favorites__card-description text">
-              A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have
-              evolved and thrived as the modern world has changed around them.
-            </p>
-            <button class="favorites__card-button text favorites__card-active" disabled>Own</button>
+          <div class="favorites__card">
+            <div class="favorites__card-wrapper">
+              <h3 class="favorites__card-title title">Staff Picks</h3>
+              <h4 class="favorites__card-name text">
+                The Last Queen<br>
+                <span>By Clive Irving</span>
+              </h4>
+              <p class="favorites__card-description text">
+                A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors
+                have
+                evolved and thrived as the modern world has changed around them.
+              </p>
+              <button class="favorites__card-button text button-hover">Buy</button>
+            </div>
+            <img class="favorites__card-image" src="./assets/img/winter/queen.jpg" alt="The Last Queen By Clive Irving">
           </div>
-          <img class="favorites__card-image" src="./assets/img/winter/queen.jpg" alt="The Last Queen By Clive Irving">
         </div>
+        <!-- Spring -->
+        <div class="favorites__container-card">
+          <div class="favorites__card">
+            <div class="favorites__card-wrapper">
+              <h3 class="favorites__card-title title">Staff Picks</h3>
+              <h4 class="favorites__card-name text">
+                The Body<br>
+                <span>By Stephen King</span>
+              </h4>
+              <p class="favorites__card-description text">
+                Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of
+                innocence that is youth.
+              </p>
+              <button class="favorites__card-button text button-hover">Buy</button>
+            </div>
+            <img class="favorites__card-image" src="./assets/img/spring/stephen_king.jpg" alt="The Body
+              By Stephen King">
+          </div>
+          <div class="favorites__card">
+            <div class="favorites__card-wrapper">
+              <h3 class="favorites__card-title title">Staff Picks</h3>
+              <h4 class="favorites__card-name text">
+                Carry: A Memoir of Survival on Stolen Land<br>
+                <span>By Toni Jenson</span>
+              </h4>
+              <p class="favorites__card-description text">
+                This memoir about the author's relationship with gun violence feels both expansive and intimate,
+                resulting
+                in a lyrical indictment of the way things are.
+              </p>
+              <button class="favorites__card-button text button-hover">Buy</button>
+            </div>
+            <img class="favorites__card-image" src="./assets/img/spring/toni_jenson.jpg" alt="Carry: A Memoir of Survival on Stolen Land
+              By Toni Jenson">
+          </div>
+          <div class="favorites__card">
+            <div class="favorites__card-wrapper">
+              <h3 class="favorites__card-title title">Staff Picks</h3>
+              <h4 class="favorites__card-name text">
+                Days of Distraction<br>
+                <span>By Alexandra Chang</span>
+              </h4>
+              <p class="favorites__card-description text">
+                A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and
+                belonging, all in one form-defying package of spare prose.
+              </p>
+              <button class="favorites__card-button text button-hover">Buy</button>
+            </div>
+            <img class="favorites__card-image" src="./assets/img/spring/alexandra_chang.jpg" alt="Days of Distraction
+              By Alexandra Chang">
+          </div>
+          <div class="favorites__card">
+            <div class="favorites__card-wrapper">
+              <h3 class="favorites__card-title title">Staff Picks</h3>
+              <h4 class="favorites__card-name text">
+                Dominicana<br>
+                <span>By Angie Cruz</span>
+              </h4>
+              <p class="favorites__card-description text">
+                A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to
+                America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel
+                Allende
+                and Julia Alvarez.
+              </p>
+              <button class="favorites__card-button text button-hover">Buy</button>
+            </div>
+            <img class="favorites__card-image" src="./assets/img/spring/angie_cruz.jpg" alt="Dominicana
+            By Angie Cruz">
+          </div>
+        </div>
+        <!-- Spring END -->
+        <!-- Summer -->
+        <div class="favorites__container-card">
+          <div class="favorites__card">
+            <div class="favorites__card-wrapper">
+              <h3 class="favorites__card-title title">Staff Picks</h3>
+              <h4 class="favorites__card-name text">
+                Crude: A Memoir<br>
+                <span>By Pablo Fajardo & ​​Sophie Tardy-Joubert</span>
+              </h4>
+              <p class="favorites__card-description text">
+                Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous
+                Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did to the Amazon
+                and
+                her people
+              </p>
+              <button class="favorites__card-button text button-hover">Buy</button>
+            </div>
+            <img class="favorites__card-image" src="./assets/img/summer/palbo_fajardo.jpg" alt="Crude: A Memoir
+              By Pablo Fajardo & ​​Sophie Tardy-Joubert">
+          </div>
+          <div class="favorites__card">
+            <div class="favorites__card-wrapper">
+              <h3 class="favorites__card-title title">Staff Picks</h3>
+              <h4 class="favorites__card-name text">
+                Let My People Go Surfing<br>
+                <span>By Yvon Chouinard</span>
+              </h4>
+              <p class="favorites__card-description text">
+                Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his
+                experience
+                of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a
+                Reluctant
+                Businessman, Including 10 More Years of Business Unusual.
+              </p>
+              <button class="favorites__card-button text button-hover">Buy</button>
+            </div>
+            <img class="favorites__card-image" src="./assets/img/summer/yvon_chouinard.jpg" alt="Let My People Go Surfing
+              By Yvon Chouinard">
+          </div>
+          <div class="favorites__card">
+            <div class="favorites__card-wrapper">
+              <h3 class="favorites__card-title title">Staff Picks</h3>
+              <h4 class="favorites__card-name text">
+                The Octopus Museum: Poems<br>
+                <span>By Brenda Shaughnessy</span>
+              </h4>
+              <p class="favorites__card-description text">
+                This collection of bold and scathingly beautiful feminist poems imagines what comes after our current
+                age
+                of
+                environmental destruction, racism, sexism, and divisive politics.
+              </p>
+              <button class="favorites__card-button text button-hover">Buy</button>
+            </div>
+            <img class="favorites__card-image" src="./assets/img/summer/brenda_shaughnnesy.jpg" alt="The Octopus Museum: Poems
+              By Brenda Shaughnessy">
+          </div>
+          <div class="favorites__card">
+            <div class="favorites__card-wrapper">
+              <h3 class="favorites__card-title title">Staff Picks</h3>
+              <h4 class="favorites__card-name text">
+                Shark Dialogues: A Novel<br>
+                <span>By Kiana Davenport</span>
+              </h4>
+              <p class="favorites__card-description text">
+                An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a
+                Hawaiian
+                woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and
+                revolutionaries, lepers and healers.
+              </p>
+              <button class="favorites__card-button text button-hover">Buy</button>
+            </div>
+            <img class="favorites__card-image" src="./assets/img/summer/kiana_davenport.jpg" alt="Shark Dialogues: A Novel
+            By Kiana Davenport">
+          </div>
+        </div>
+        <!-- Summer END -->
+        <!-- Autumn -->
+        <div class="favorites__container-card">
+          <div class="favorites__card">
+            <div class="favorites__card-wrapper">
+              <h3 class="favorites__card-title title">Staff Picks</h3>
+              <h4 class="favorites__card-name text">
+                Casual Conversation<br>
+                <span>By Renia White</span>
+              </h4>
+              <p class="favorites__card-description text">
+                White's impressive debut collection takes readers through and beyond the concepts of conversation and
+                the
+                casual - both what we say to each other and what we don't, examining the possibilities around how we
+                construct and communicate identity.
+              </p>
+              <button class="favorites__card-button text button-hover">Buy</button>
+            </div>
+            <img class="favorites__card-image" src="./assets/img/autumn/riana_white.jpg" alt="Casual Conversation
+            By Renia White">
+          </div>
+          <div class="favorites__card">
+            <div class="favorites__card-wrapper">
+              <h3 class="favorites__card-title title">Staff Picks</h3>
+              <h4 class="favorites__card-name text">
+                The Great Fire<br>
+                <span>By Lou Ureneck</span>
+              </h4>
+              <p class="favorites__card-description text">
+                The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning
+                of
+                Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian
+                Genocide
+              </p>
+              <button class="favorites__card-button text button-hover">Buy</button>
+            </div>
+            <img class="favorites__card-image" src="./assets/img/autumn/lou_ureneck.jpg" alt="The Great Fire
+            By Lou Ureneck">
+          </div>
+          <div class="favorites__card">
+            <div class="favorites__card-wrapper">
+              <h3 class="favorites__card-title title">Staff Picks</h3>
+              <h4 class="favorites__card-name text">
+                Rickey: The Life and Legend<br>
+                <span>By Howard Bryant</span>
+              </h4>
+              <p class="favorites__card-description text">
+                With the fall rolling around, one can't help but think of baseball's postseason coming up! And what
+                better
+                way to prepare for it than reading the biography of one of the game's all-time greatest performers, the
+                Man
+                of Steal, Rickey Henderson?
+              </p>
+              <button class="favorites__card-button text button-hover">Buy</button>
+            </div>
+            <img class="favorites__card-image" src="./assets/img/autumn/howard_bryant.jpg" alt="Rickey: The Life and Legend
+            By Howard Bryant">
+          </div>
+          <div class="favorites__card">
+            <div class="favorites__card-wrapper">
+              <h3 class="favorites__card-title title">Staff Picks</h3>
+              <h4 class="favorites__card-name text">
+                Slug: And Other Stories<br>
+                <span>By Megan Milks</span>
+              </h4>
+              <p class="favorites__card-description text">
+                Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child
+                experience the shared trauma of giving birth to gods from their wounds.
+              </p>
+              <button class="favorites__card-button text button-hover">Buy</button>
+            </div>
+            <img class="favorites__card-image" src="./assets/img/autumn/megan_milks.jpg" alt="Slug: And Other Stories
+            By Megan Milks">
+          </div>
+        </div>
+        <!-- Autumn END -->
       </div>
-      <!-- Spring -->
-      <div class="favorites__container display-none">
-        <div class="favorites__card">
-          <h3 class="favorites__card-title title">Staff Picks</h3>
-          <h4 class="favorites__card-name text">
-            The Body<br>
-            <span>By Stephen King</span>
-          </h4>
-          <p class="favorites__card-description text">
-            Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of
-            innocence that is youth.
-          </p>
-          <img class="favorites__card-image" src="./assets/img/spring/stephen_king.jpg" alt="The Body
-            By Stephen King">
-          <button class="favorites__card-button text button-hover">Buy</button>
-        </div>
-        <div class="favorites__card">
-          <h3 class="favorites__card-title title">Staff Picks</h3>
-          <h4 class="favorites__card-name text">
-            Carry: A Memoir of Survival on Stolen Land<br>
-            <span>By Toni Jenson</span>
-          </h4>
-          <p class="favorites__card-description text">
-            This memoir about the author's relationship with gun violence feels both expansive and intimate, resulting
-            in a lyrical indictment of the way things are.
-          </p>
-          <img class="favorites__card-image" src="./assets/img/spring/toni_jenson.jpg" alt="Carry: A Memoir of Survival on Stolen Land
-            By Toni Jenson">
-          <button class="favorites__card-button text button-hover">Buy</button>
-        </div>
-        <div class="favorites__card">
-          <h3 class="favorites__card-title title">Staff Picks</h3>
-          <h4 class="favorites__card-name text">
-            Days of Distraction<br>
-            <span>By Alexandra Chang</span>
-          </h4>
-          <p class="favorites__card-description text">
-            A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and
-            belonging, all in one form-defying package of spare prose.
-          </p>
-          <img class="favorites__card-image" src="./assets/img/spring/alexandra_chang.jpg" alt="Days of Distraction
-            By Alexandra Chang">
-          <button class="favorites__card-button text button-hover">Buy</button>
-        </div>
-        <div class="favorites__card">
-          <h3 class="favorites__card-title title">Staff Picks</h3>
-          <h4 class="favorites__card-name text">
-            Dominicana<br>
-            <span>By Angie Cruz</span>
-          </h4>
-          <p class="favorites__card-description text">
-            A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to
-            America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende
-            and Julia Alvarez.
-          </p>
-          <img class="favorites__card-image" src="./assets/img/spring/angie_cruz.jpg" alt="Dominicana
-          By Angie Cruz">
-          <button class="favorites__card-button text favorites__card-active" disabled>Own</button>
-        </div>
-      </div>
-      <!-- Spring END -->
-      <!-- Summer -->
-      <div class="favorites__container display-none">
-        <div class="favorites__card">
-          <h3 class="favorites__card-title title">Staff Picks</h3>
-          <h4 class="favorites__card-name text">
-            Crude: A Memoir<br>
-            <span>By Pablo Fajardo & ​​Sophie Tardy-Joubert</span>
-          </h4>
-          <p class="favorites__card-description text">
-            Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous
-            Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did to the Amazon and
-            her people
-          </p>
-          <img class="favorites__card-image" src="./assets/img/summer/palbo_fajardo.jpg" alt="Crude: A Memoir
-            By Pablo Fajardo & ​​Sophie Tardy-Joubert">
-          <button class="favorites__card-button text button-hover">Buy</button>
-        </div>
-        <div class="favorites__card">
-          <h3 class="favorites__card-title title">Staff Picks</h3>
-          <h4 class="favorites__card-name text">
-            Let My People Go Surfing<br>
-            <span>By Yvon Chouinard</span>
-          </h4>
-          <p class="favorites__card-description text">
-            Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his experience
-            of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a Reluctant
-            Businessman, Including 10 More Years of Business Unusual.
-          </p>
-          <img class="favorites__card-image" src="./assets/img/summer/yvon_chouinard.jpg" alt="Let My People Go Surfing
-            By Yvon Chouinard">
-          <button class="favorites__card-button text button-hover">Buy</button>
-        </div>
-        <div class="favorites__card">
-          <h3 class="favorites__card-title title">Staff Picks</h3>
-          <h4 class="favorites__card-name text">
-            The Octopus Museum: Poems<br>
-            <span>By Brenda Shaughnessy</span>
-          </h4>
-          <p class="favorites__card-description text">
-            This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of
-            environmental destruction, racism, sexism, and divisive politics.
-          </p>
-          <img class="favorites__card-image" src="./assets/img/summer/brenda_shaughnnesy.jpg" alt="The Octopus Museum: Poems
-            By Brenda Shaughnessy">
-          <button class="favorites__card-button text button-hover">Buy</button>
-        </div>
-        <div class="favorites__card">
-          <h3 class="favorites__card-title title">Staff Picks</h3>
-          <h4 class="favorites__card-name text">
-            Shark Dialogues: A Novel<br>
-            <span>By Kiana Davenport</span>
-          </h4>
-          <p class="favorites__card-description text">
-            An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian
-            woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and
-            revolutionaries, lepers and healers.
-          </p>
-          <img class="favorites__card-image" src="./assets/img/summer/kiana_davenport.jpg" alt="Shark Dialogues: A Novel
-          By Kiana Davenport">
-          <button class="favorites__card-button text favorites__card-active" disabled>Own</button>
-        </div>
-      </div>
-      <!-- Summer END -->
-      <!-- Autumn -->
-      <div class="favorites__container display-none">
-        <div class="favorites__card">
-          <h3 class="favorites__card-title title">Staff Picks</h3>
-          <h4 class="favorites__card-name text">
-            Casual Conversation<br>
-            <span>By Renia White</span>
-          </h4>
-          <p class="favorites__card-description text">
-            White's impressive debut collection takes readers through and beyond the concepts of conversation and the
-            casual - both what we say to each other and what we don't, examining the possibilities around how we
-            construct and communicate identity.
-          </p>
-          <img class="favorites__card-image" src="./assets/img/autumn/riana_white.jpg" alt="Casual Conversation
-          By Renia White">
-          <button class="favorites__card-button text button-hover">Buy</button>
-        </div>
-        <div class="favorites__card">
-          <h3 class="favorites__card-title title">Staff Picks</h3>
-          <h4 class="favorites__card-name text">
-            The Great Fire<br>
-            <span>By Lou Ureneck</span>
-          </h4>
-          <p class="favorites__card-description text">
-            The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of
-            Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian
-            Genocide
-          </p>
-          <img class="favorites__card-image" src="./assets/img/autumn/lou_ureneck.jpg" alt="The Great Fire
-          By Lou Ureneck">
-          <button class="favorites__card-button text button-hover">Buy</button>
-        </div>
-        <div class="favorites__card">
-          <h3 class="favorites__card-title title">Staff Picks</h3>
-          <h4 class="favorites__card-name text">
-            Rickey: The Life and Legend<br>
-            <span>By Howard Bryant</span>
-          </h4>
-          <p class="favorites__card-description text">
-            With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better
-            way to prepare for it than reading the biography of one of the game's all-time greatest performers, the Man
-            of Steal, Rickey Henderson?
-          </p>
-          <img class="favorites__card-image" src="./assets/img/autumn/howard_bryant.jpg" alt="Rickey: The Life and Legend
-          By Howard Bryant">
-          <button class="favorites__card-button text button-hover">Buy</button>
-        </div>
-        <div class="favorites__card">
-          <h3 class="favorites__card-title title">Staff Picks</h3>
-          <h4 class="favorites__card-name text">
-            Slug: And Other Stories<br>
-            <span>By Megan Milks</span>
-          </h4>
-          <p class="favorites__card-description text">
-            Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child
-            experience the shared trauma of giving birth to gods from their wounds.
-          </p>
-          <img class="favorites__card-image" src="./assets/img/autumn/megan_milks.jpg" alt="Slug: And Other Stories
-          By Megan Milks">
-          <button class="favorites__card-button text favorites__card-active" disabled>Own</button>
-        </div>
-      </div>
-      <!-- Autumn END-->
     </section>
     <section class="coffee-shop container" id="coffee-shop">
       <h2 class="coffee-shop__title title title-section">Coffee shop</h2>
@@ -463,7 +524,24 @@
               <input class="library__form-input title" type="text" placeholder="Card number" required
                 pattern="/^[a-zA-Z0-9+_@-.]$/">
             </fieldset>
-            <button class="library__form-button text button-hover">Check the card</button>
+            <button type="submit" class="library__form-button text button-hover">Check the card</button>
+            <ul class="library__form-panel text">
+              <li class="library__form-panel__item">
+                <span class="library__form-panel__item_name">Visits</span>
+                <img src="./assets/img/svg/Union.svg" class="library__form-panel__item_img" alt="logoPerson">
+                <span class="library__form-panel__item_sum">0</span>
+              </li>
+              <li class="library__form-panel__item">
+                <span class="library__form-panel__item_name">Bonuses</span>
+                <img src="./assets/img/svg/Star 1.svg" class="library__form-panel__item_img" alt="logoStar">
+                <span class="library__form-panel__item_sum">1240</span>
+              </li>
+              <li class="library__form-panel__item">
+                <span class="library__form-panel__item_name">Books</span>
+                <img src="./assets/img/svg/book.svg" class="library__form-panel__item_img" alt="logoBook">
+                <span class="library__form-panel__item_sum">0</span>
+              </li>
+            </ul>
           </fieldset>
         </form>
         <div class="library__container">
@@ -534,6 +612,170 @@
       </ul>
     </div>
   </footer>
+  <div class="modal-rg">
+    <form class="modal-register">
+      <fieldset class="modal-register__wrapper">
+        <h3 class="modal-register__title title modal__title">Register</h3>
+        <button class="modal-register__btn-close modal__btn-close" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none" class="">
+            <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3" />
+            <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3" />
+          </svg>
+        </button>
+        <div class="modal-register__container modal__container">
+          <label class="modal-register__label text modal__label">
+            First name
+            <input type="text" class="modal-register__input modal__input" required>
+          </label>
+          <label class="modal-register__label text modal__label">
+            Last name
+            <input type="text" class="modal-register__input modal__input" required>
+          </label>
+          <label class="modal-register__label text modal__label">
+            E-mail
+            <input type="email" class="modal-register__input modal__input" required>
+          </label>
+          <label class="modal-register__label text modal__label">
+            Password
+            <input type="password" class="modal-register__input modal__input" required minlength="8">
+          </label>
+        </div>
+        <button type="submit" class="modal-register__button text modal__button">Sign Up</button>
+        <p class="modal-register__description text modal__description">Already have an account? <a href="#"
+            class="modal-register__link modal__link">Login</a></p>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-lg">
+    <form class="modal-login">
+      <fieldset class="modal-login__wrapper">
+        <h3 class="modal-login__title title modal__title">Login</h3>
+        <button class="modal-login__btn-close modal__btn-close" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+            <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3" />
+            <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3" />
+          </svg>
+        </button>
+        <div class="modal-login__container modal__container">
+          <label class="modal-login__label text modal__label">
+            E-mail or readers card
+            <input type="text" class="modal-login__input modal__input" required>
+          </label>
+          <label class="modal-login__label text modal__label">
+            Password
+            <input type="password" class="modal-login__input modal__input" required minlength="8">
+          </label>
+        </div>
+        <button type="submit" class="modal-login__button text modal__button">Log In</button>
+        <p class="modal-login__description text modal__description">Don’t have an account? <a href="#"
+            class="modal-login__link modal__link">Register</a></p>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-prf">
+    <div class="modal-profile">
+      <button class="modal-profile__btn-close" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+          <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3" />
+          <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3" />
+        </svg>
+      </button>
+      <div class="modal-profile__aside">
+        <div class="modal-profile__aside-short-name text"></div>
+        <div class="modal-profile__aside-full-name text"></div>
+      </div>
+      <div class="modal-profile__main">
+        <h3 class="modal-profile__main-title title">My Profile</h3>
+        <ul class="modal-profile__main__list text">
+          <li class="modal-profile__main__item">
+            <span class="modal-profile__main__item_name">Visits</span>
+            <img src="./assets/img/svg/Union.svg" class="modal-profile__main__item_img" alt="logoPerson">
+            <span class="modal-profile__main__item_sum">0</span>
+          </li>
+          <li class="modal-profile__main__item">
+            <span class="modal-profile__main__item_name">Bonuses</span>
+            <img src="./assets/img/svg/Star 1.svg" class="modal-profile__main__item_img" alt="logoStar">
+            <span class="modal-profile__main__item_sum">1240</span>
+          </li>
+          <li class="modal-profile__main__item">
+            <span class="modal-profile__main__item_name">Books</span>
+            <img src="./assets/img/svg/book.svg" class="modal-profile__main__item_img" alt="logoBook">
+            <span class="modal-profile__main__item_sum">0</span>
+          </li>
+        </ul>
+        <div class="modal-profile__main-wrapper">
+          <h3 class="modal-profile__main__list_books-title text">Rented books</h3>
+          <ul class="modal-profile__main__list_books text">
+          </ul>
+        </div>
+        <div class="modal-profile__card text">
+          <span class="modal-profile__card-block text">Card number</span>
+          <span class="modal-profile__card-id text"></span>
+          <button class="modal-profile__card-copy" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+              <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5" />
+              <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black"
+                stroke-width="0.5" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-buy">
+    <form class="modal-buy__form">
+      <fieldset class="modal-buy__wrapper">
+        <h3 class="modal-buy__form-title title">Buy a library card</h3>
+        <button class="modal-buy__form-btn_close" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+            <path d="M2 16.8507L17 2" stroke="white" stroke-width="3" />
+            <path d="M2 2.14929L17 17" stroke="white" stroke-width="3" />
+          </svg>
+        </button>
+        <div class="modal-buy__form-wrapper">
+          <div class="modal-buy__form-list">
+            <label class="modal-buy__form-label text">
+              Bank card number
+              <input type="text" class="modal-buy__form-input" required minlength="16" maxlength="16">
+            </label>
+            <label class="modal-buy__form-label text">
+              Expiration code
+              <div class="modal-buy__form-input_wrapper">
+                <input type="text" class="modal-buy__form-input" required minlength="2" maxlength="2">
+                <input type="text" class="modal-buy__form-input" required minlength="2" maxlength="2">
+              </div>
+            </label>
+            <label class="modal-buy__form-label text">
+              CVC
+              <input type="password" class="modal-buy__form-input" required minlength="3" maxlength="3">
+            </label>
+            <label class="modal-buy__form-label text">
+              Cardholder name
+              <input type="text" class="modal-buy__form-input" required>
+            </label>
+            <label class="modal-buy__form-label text">
+              Postal code
+              <input type="text" class="modal-buy__form-input" required>
+            </label>
+            <label class="modal-buy__form-label text">
+              City / Town
+              <input type="text" class="modal-buy__form-input" required>
+            </label>
+            <div class="modal-buy__form-container">
+              <button class="modal-buy__form-btn_submit text" type="submit" disabled>Buy</button>
+              <span class="modal-buy__form-amount text">$25.00</span>
+            </div>
+          </div>
+          <p class="modal-buy__form-description text">If you are live, work, attend school, or pay property taxes in New
+            York
+            State, you can get a $25 digital library card right now using this online form. Visitors to New York State
+            can
+            also use this form to apply for a temporary card.
+          </p>
+        </div>
+      </fieldset>
+    </form>
+  </div>
   <script src="./js/index.js"></script>
 </body>
 
