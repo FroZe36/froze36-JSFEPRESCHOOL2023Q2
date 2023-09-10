@@ -10,6 +10,9 @@
 }
 @media (max-width: 1280px) {
   .favorites__container {
+    height: 2340px;
+  }
+  .favorites__container-card {
     justify-content: center;
   }
   .contacts__wrapper {
@@ -45,15 +48,8 @@
   }
 }
 @media (max-width: 1024px) {
-  .about__wrapper {
+  .about__wrapper-slides {
     margin-bottom: 21px;
-    justify-content: space-between;
-  }
-  .about__wrapper-block:nth-child(3) {
-    display: none;
-  }
-  .button-wrapper:nth-child(4) {
-    display: flex;
   }
   .about__container {
     margin-bottom: 36px;
@@ -88,31 +84,45 @@
   }
 }
 @media (max-width: 768px) {
-  .about__wrapper {
-    justify-content: center;
-    position: relative;
+  .about__slider {
+    width: 450px;
+    margin: 0 auto;
   }
-  .about__wrapper::before {
-    content: url(../assets/img/svg/Carret_Left.svg);
+  .about__wrapper-slides {
+    gap: 0px
+  }
+  .about__slider-array_left {
+    display: block;
+    position: absolute;
+    background-image: url(../assets/img/svg/Carret_Left.svg);
     width: 24px;
     height: 24px;
-    align-self: center;
-    transform: translate(-130%, 90%);
+    left: 40px;
+    top: 15%;
     cursor: pointer;
+    border: none;
   }
-  .about__wrapper::after {
-    content: url(../assets/img/svg/Carret_Right.svg);
+  .about__slider-array_right {
+    display: block;
+    position: absolute;
+    background-image: url(../assets/img/svg/Carret_Right.svg);
     width: 24px;
     height: 24px;
-    align-self: center;
-    transform: translate(130%, 90%);
+    right: 40px;
+    top: 15%;
     cursor: pointer;
+    border: none;
   }
-  .about__wrapper-block:nth-child(2) {
-    display: none;
+  .button-wrapper:nth-child(4) {
+    display: flex;
   }
   .button-wrapper:nth-child(5) {
     display: flex;
+  }
+  .favorites__wrapper {
+    position: sticky;
+    top: 10px;
+    z-index: 1;
   }
   .rs {
     transform: translateX(-2%);
