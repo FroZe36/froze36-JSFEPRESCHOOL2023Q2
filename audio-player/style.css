@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 body {
   background: #000000;
   display: flex;
@@ -108,4 +109,25 @@ body {
   text-align: end;
   font-size: 17px;
   color: rgb(193, 255, 6);
+}
+footer {
+  position: absolute;
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  z-index: 2;
+}
+#rs-logo {
+  width: 100px;
+}
+#data {
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(193, 255, 6);
+}
+#github {
+  color: rgb(193, 255, 6);
+  font-size: 40px;
 }
