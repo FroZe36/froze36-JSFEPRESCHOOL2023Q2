@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
   <title>MusicBar</title>
 </head>
+
 <body>
-  
+  <img src="./assets/img/dontstartnow.png" alt="" id="background">
+  <div class="wrapper">
+    <div class="wrapper-image">
+      <img src="./assets/img/dontstartnow.png" alt="gorilla" class="music-cover">
+    </div>
+    <div class="audio-player">
+      <div class="audio-player__wrapper">
+        <img src="./assets/svg/play.png" alt="Button play" class="btn-toogle">
+        <div class="audio-player__wrapper_track">
+          <span class="audio-player__singer">Beyounce</span>
+          <span class="audio-player__track-name">Don`t hurt yourself</span>
+        </div>
+        <div class="audio-player__wrapper_buttons">
+          <img src="./assets/svg/backward.png" alt="backward" class="btn-backward">
+          <img src="./assets/svg/forward.png" alt="forward" class="btn_forward">
+        </div>
+      </div>
+      <div class="audio-player__container">
+        <span class="audio-player__current-time">0:00</span>
+        <div class="audio-player__timeline"></div>
+        <span class="audio-player__duration-time">3:53</span>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>
