@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+body {
+  background: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow-y: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+#background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(10px);
+  z-index: -1;
+}
+.wrapper {
+  position: absolute;
+  z-index: 1;
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+  overflow: hidden;
+}
+.wrapper-image {
+  overflow: hidden;
+  height: 300px;
+}
+.music-cover {
+  width: 103%;
+  height: 110%;
+  transform: scale(1);
+  transition: 1s;
+}
+.btn-toogle {
+  width: 50px;
+  height: 50px;
+  filter: invert(1);
+  cursor: pointer;
+}
+.btn-forward {
+  width: 30px;
+  height: 30px;
+  filter: invert(1);
+  cursor: pointer;
+}
+.btn-backward {
+  filter: invert(1);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.btn-toogle:hover {
+  filter: opacity(0.7);
+}
+.btn-forward:hover {
+  filter: opacity(0.7);
+}
+.btn-backward:hover {
+  filter: opacity(0.7);
+}
+.audio-player {
+  background: linear-gradient(45deg, rgb(40, 40, 40), rgb(130, 130, 130));
+}
+.audio-player__wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  align-items: center;
+  padding: 20px;
+}
+.audio-player__wrapper_track {
+  display: flex;
+  flex: 0 1 70%;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+}
+.audio-player__singer {
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(193, 255, 6);
+}
+.audio-player__track-name {
+  color: white;
+  font-size: 17px;
+}
+.audio-player__container {
+  display: flex;
+  padding: 5px 20px 20px 20px;
+  justify-content: space-between;
+  gap: 10px;
+}
+.audio-player__current-time {
+  flex: 0 1 12%;
+  width: 100%;
+  font-size: 17px;
+  color: white;
+}
+.audio-player__timeline {
+  flex: 1 1;
+  background: white;
+  width: 100%;
+  height: 10px;
+  align-self: center;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px 0 #0008;
+}
+.audio-player__progress {
+  background: rgb(193, 255, 6);
+  border-radius: 10px;
+  width: 0%;
+  height: 100%;
+  transition: 0.25s;
+}
+.audio-player__duration-time {
+  flex: 0 1;
+  text-align: end;
+  font-size: 17px;
+  color: rgb(193, 255, 6);
+}
+footer {
+  position: absolute;
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  z-index: 2;
+}
+#rs-logo {
+  width: 100px;
+}
+#data {
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(193, 255, 6);
+}
+#github {
+  color: rgb(193, 255, 6);
+  font-size: 40px;
+}
