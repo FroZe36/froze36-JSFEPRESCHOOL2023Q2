@@ -1,0 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  font-family: 'Rubik Wet Paint', cursive;
+  color: #6e7888;
+}
+body {
+  background-color: #222738;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6e7888;
+}
+#game-ground {
+  background-color: #181825;
+  border: 2px solid yellow;
+}
