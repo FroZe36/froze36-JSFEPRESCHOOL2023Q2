@@ -7,16 +7,53 @@ html,
 body {
   height: 100%;
   font-family: 'Rubik Wet Paint', cursive;
-  color: #6e7888;
 }
 body {
   background-color: #222738;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #6e7888;
+  color: #2b4c81;
+}
+.wrapper-score {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 40px;
+  color: #24e3bd;
+}
+.text-score {
+  font-size: 60px;
+}
+.score {
+  font-size: 60px;
+  width: 100px;
+}
+.btn-reset {
+  width: 150px;
+  height: 50px;
+  align-self: center;
+  font-family: 'Rubik Wet Paint', cursive;
+  font-size: 19px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 121, 19, 1) 0%,
+    rgba(8, 134, 52, 1) 0%,
+    rgba(8, 135, 55, 1) 20%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  transform: scale(1);
+  transition: scale 1s ease;
+  cursor: pointer;
+}
+.btn-reset:hover {
+  transform: scale(0.9);
 }
 #game-ground {
-  background-color: #181825;
-  border: 2px solid yellow;
+  border: 3px solid yellow;
 }
