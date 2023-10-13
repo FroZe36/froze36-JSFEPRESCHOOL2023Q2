@@ -5,6 +5,11 @@ const ctx = canvas.getContext('2d');
 const canvasWidth = (canvas.width = 500);
 const canvasHeight = (canvas.height = 500);
 const resetbtn = document.querySelector('.btn-reset');
+let btnDifficulty = document.querySelectorAll('.btn-difficulty');
+const difficultyText = document.querySelector('.difficulty-text');
+difficultyText.style.color = '#2abf22'
+difficultyText.textContent = "Easy"
+let difficulty = 100;
 let cells = 20;
 const box = canvasWidth / cells;
 let isPlayGame = false;
@@ -20,7 +25,29 @@ const snakeHead = new Image();
 snakeHead.src = './img/snake-head.png';
 
 resetbtn.addEventListener('click', resetGame);
-
+btnDifficulty.forEach(item =>
+  item.addEventListener('click', e => {
+    if (e.target.classList.contains('easy')) {
+      difficulty = 100;
+      difficultyText.style.color = '#2abf22'
+      difficultyText.textContent = "Easy"
+      clearInterval(game)
+      gameStart()
+    } else if (e.target.classList.contains('medium')) {
+      difficulty = 75;
+      difficultyText.style.color = '#b7bf22'
+      difficultyText.textContent = "Medium"
+      clearInterval(game)
+      gameStart()
+    } else if (e.target.classList.contains('hard')) {
+      difficulty = 50;
+      difficultyText.style.color = '#e02716'
+      difficultyText.textContent = "Hard"
+      clearInterval(game)
+      gameStart()
+    }
+  }),
+);
 function direction(e) {
   if (e.key == 'ArrowUp' && dir != 'down') {
     dir = 'up';
@@ -55,7 +82,6 @@ function drawGround() {
 drawGround();
 createFood();
 gameStart();
-
 function gameStart() {
   isPlayGame = true;
   scoreText.textContent = score;
@@ -70,7 +96,7 @@ function gameStart() {
     } else {
       displayGameOver();
     }
-  }, 100);
+  }, difficulty);
 }
 function clearBoard() {
   drawGround();
@@ -135,6 +161,8 @@ function displayGameOver() {
   ctx.fillStyle = 'white';
   ctx.textAlign = 'center';
   ctx.fillText('Game is over', canvasWidth / 2, canvasHeight / 2);
+  ctx.fillStyle = 'red';
+  ctx.fillText(`Your Score: ${score}`, canvasWidth / 2, 350);
   clearInterval(game);
 }
 function resetGame() {

@@ -12,7 +12,6 @@ body {
   background-color: #222738;
   display: flex;
   justify-content: center;
-  align-items: center;
   color: #2b4c81;
 }
 .wrapper-score {
@@ -56,4 +55,37 @@ body {
 }
 #game-ground {
   border: 3px solid yellow;
+  margin-bottom: 20px;
+}
+.btn-difficulty {
+  width: 100px;
+  height: 35px;
+  align-self: center;
+  font-family: 'Rubik Wet Paint', cursive;
+  font-size: 19px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-right: 20px;
+  transform: scale(1);
+  transition: scale 1s ease;
+}
+.btn-difficulty:hover {
+  transform: scale(0.9);
+}
+.btn-difficulty:last-child {
+  margin-right: 35px;
+}
+.easy {
+  background-color: #2abf22;
+}
+.medium {
+  background-color: #b7bf22;
+}
+.hard {
+  background-color: #e02716;
+}
+.difficulty-text {
+  font-size: 30px;
 }
