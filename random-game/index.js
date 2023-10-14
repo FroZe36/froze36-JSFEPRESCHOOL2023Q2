@@ -7,6 +7,7 @@ const canvasHeight = (canvas.height = 500);
 const resetbtn = document.querySelector('.btn-reset');
 let btnDifficulty = document.querySelectorAll('.btn-difficulty');
 const difficultyText = document.querySelector('.difficulty-text');
+const eatAudio = new Audio('./audio/eatAudio.mp3')
 difficultyText.style.color = '#2abf22'
 difficultyText.textContent = "Easy"
 let difficulty = 100;
@@ -120,6 +121,7 @@ function moveSnake() {
   };
   snake.unshift(head);
   if (snake[0].x == food.x && snake[0].y == food.y) {
+    eatAudio.play()
     score++;
     scoreText.textContent = score;
     createFood();
@@ -157,11 +159,11 @@ function checkGameOver() {
   }
 }
 function displayGameOver() {
-  ctx.font = "65px 'Rubik Wet Paint', cursive";
-  ctx.fillStyle = 'white';
-  ctx.textAlign = 'center';
-  ctx.fillText('Game is over', canvasWidth / 2, canvasHeight / 2);
+  ctx.font = "60px 'Rubik Wet Paint', cursive";
   ctx.fillStyle = 'red';
+  ctx.textAlign = 'center';
+  ctx.fillText('GAME OVER', canvasWidth / 2, canvasHeight / 2);
+  ctx.fillStyle = 'white';
   ctx.fillText(`Your Score: ${score}`, canvasWidth / 2, 350);
   clearInterval(game);
 }

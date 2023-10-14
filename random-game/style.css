@@ -11,7 +11,9 @@ body {
 body {
   background-color: #222738;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   color: #2b4c81;
 }
 .wrapper-score {
@@ -88,4 +90,16 @@ body {
 }
 .difficulty-text {
   font-size: 30px;
+}
+.footer {
+  color: rgb(193, 255, 6);
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  font-size: 32px;
+  padding: 25px 0px;
+}
+a {
+  text-decoration: none;
+  color: rgb(193, 255, 6);
 }
