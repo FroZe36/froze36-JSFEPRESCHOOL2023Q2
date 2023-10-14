@@ -7,9 +7,11 @@ const canvasHeight = (canvas.height = 500);
 const resetbtn = document.querySelector('.btn-reset');
 let btnDifficulty = document.querySelectorAll('.btn-difficulty');
 const difficultyText = document.querySelector('.difficulty-text');
-const eatAudio = new Audio('./audio/eatAudio.mp3')
-difficultyText.style.color = '#2abf22'
-difficultyText.textContent = "Easy"
+const eatAudio = new Audio('./audio/eatAudio.mp3');
+let tableBody = document.querySelector('.score-table-body');
+let localStorageItem;
+difficultyText.style.color = '#2abf22';
+difficultyText.textContent = 'Easy';
 let difficulty = 100;
 let cells = 20;
 const box = canvasWidth / cells;
@@ -28,24 +30,33 @@ snakeHead.src = './img/snake-head.png';
 resetbtn.addEventListener('click', resetGame);
 btnDifficulty.forEach(item =>
   item.addEventListener('click', e => {
-    if (e.target.classList.contains('easy')) {
+    if (e.target.classList.contains('easy') && isPlayGame != false) {
       difficulty = 100;
-      difficultyText.style.color = '#2abf22'
-      difficultyText.textContent = "Easy"
-      clearInterval(game)
-      gameStart()
-    } else if (e.target.classList.contains('medium')) {
+      difficultyText.style.color = '#2abf22';
+      difficultyText.textContent = 'Easy';
+      clearInterval(game);
+      while (tableBody.firstChild) {
+        tableBody.firstChild.remove();
+      }
+      gameStart();
+    } else if (e.target.classList.contains('medium') && isPlayGame != false) {
       difficulty = 75;
-      difficultyText.style.color = '#b7bf22'
-      difficultyText.textContent = "Medium"
-      clearInterval(game)
-      gameStart()
-    } else if (e.target.classList.contains('hard')) {
+      difficultyText.style.color = '#b7bf22';
+      difficultyText.textContent = 'Medium';
+      clearInterval(game);
+      while (tableBody.firstChild) {
+        tableBody.firstChild.remove();
+      }
+      gameStart();
+    } else if (e.target.classList.contains('hard') && isPlayGame != false) {
       difficulty = 50;
-      difficultyText.style.color = '#e02716'
-      difficultyText.textContent = "Hard"
-      clearInterval(game)
-      gameStart()
+      difficultyText.style.color = '#e02716';
+      difficultyText.textContent = 'Hard';
+      clearInterval(game);
+      while (tableBody.firstChild) {
+        tableBody.firstChild.remove();
+      }
+      gameStart();
     }
   }),
 );
@@ -84,6 +95,16 @@ drawGround();
 createFood();
 gameStart();
 function gameStart() {
+  if (localStorage.getItem('score')) {
+    localStorageItem = JSON.parse(localStorage.getItem('score'));
+    if (localStorageItem.length >= 10) {
+      while (tableBody.firstChild) {
+        tableBody.firstChild.remove();
+      }
+      localStorage.removeItem('score');
+    }
+    createTableScore(localStorageItem);
+  }
   isPlayGame = true;
   scoreText.textContent = score;
   ctx.drawImage(foodImg, food.x, food.y);
@@ -121,7 +142,7 @@ function moveSnake() {
   };
   snake.unshift(head);
   if (snake[0].x == food.x && snake[0].y == food.y) {
-    eatAudio.play()
+    eatAudio.play();
     score++;
     scoreText.textContent = score;
     createFood();
@@ -165,13 +186,82 @@ function displayGameOver() {
   ctx.fillText('GAME OVER', canvasWidth / 2, canvasHeight / 2);
   ctx.fillStyle = 'white';
   ctx.fillText(`Your Score: ${score}`, canvasWidth / 2, 350);
+  setLocalStorage();
   clearInterval(game);
 }
 function resetGame() {
   score = 0;
   snake = [{ x: 10 * box, y: 10 * box }];
   dir = null;
+  while (tableBody.firstChild) {
+    tableBody.firstChild.remove();
+  }
   clearInterval(game);
   createFood();
   gameStart();
+}
+function setLocalStorage() {
+  localStorageItem = [score];
+  if (localStorage.getItem('score')) {
+    localStorageItem = JSON.parse(localStorage.getItem('score'));
+    if (localStorageItem.length >= 10) {
+      localStorage.removeItem('score');
+    }
+    localStorageItem.push(score);
+    localStorage.setItem('score', JSON.stringify(localStorageItem));
+  } else {
+    localStorage.setItem('score', JSON.stringify(localStorageItem));
+  }
+  while (tableBody.firstChild) {
+    tableBody.firstChild.remove();
+  }
+  createTableScore(localStorageItem);
+}
+function createTableScore(arr) {
+  let gameNumber = '';
+  let score = 0;
+  for (let i = 0; i < arr.length; i++) {
+    score = arr[i];
+    switch (i) {
+      case 0:
+        gameNumber = 'First Game';
+        break;
+      case 1:
+        gameNumber = 'Second Game';
+        break;
+      case 2:
+        gameNumber = 'Third Game';
+        break;
+      case 3:
+        gameNumber = 'Fourth Game';
+        break;
+      case 4:
+        gameNumber = 'Fifth Game';
+        break;
+      case 5:
+        gameNumber = 'Sixth Game';
+        break;
+      case 6:
+        gameNumber = 'Seventh Game';
+        break;
+      case 7:
+        gameNumber = 'Eighth Game';
+        break;
+      case 8:
+        gameNumber = 'Ninth Game';
+        break;
+      case 9:
+        gameNumber = 'Tenth Game';
+        break;
+    }
+    let tableRow = document.createElement('tr');
+    let tableRowGameNumber = document.createElement('th');
+    tableRowGameNumber.classList.add('score-header');
+    let tableRowScore = document.createElement('td');
+    tableRowScore.classList.add('score-td');
+    tableRowGameNumber.textContent = gameNumber;
+    tableRowScore.textContent = score;
+    tableRow.append(tableRowGameNumber, tableRowScore);
+    tableBody.append(tableRow);
+  }
 }

@@ -16,6 +16,9 @@ body {
   align-items: center;
   color: #2b4c81;
 }
+.wrapper {
+  position: relative;
+}
 .wrapper-score {
   display: flex;
   justify-content: center;
@@ -90,6 +93,25 @@ body {
 }
 .difficulty-text {
   font-size: 30px;
+}
+.score-table {
+  position: absolute;
+  top: 14%;
+  right: -42%;
+}
+.table-header {
+  padding: 10px 15px;
+  font-size: 22px;
+  color: #dfe30b;
+}
+.score-header {
+  padding: 0px 0px 5px 2px;
+  text-align: start;
+  color: #17c8cf;
+}
+.score-td {
+  padding: 0px 0px 5px 0px;
+  color: #44bd62;
 }
 .footer {
   color: rgb(193, 255, 6);
