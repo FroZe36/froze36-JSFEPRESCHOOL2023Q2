@@ -1,0 +1,127 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  font-family: 'Rubik Wet Paint', cursive;
+}
+body {
+  background-color: #222738;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: #2b4c81;
+}
+.wrapper {
+  position: relative;
+}
+.wrapper-score {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 40px;
+  color: #24e3bd;
+}
+.text-score {
+  font-size: 60px;
+}
+.score {
+  font-size: 60px;
+  width: 100px;
+}
+.btn-reset {
+  width: 150px;
+  height: 50px;
+  align-self: center;
+  font-family: 'Rubik Wet Paint', cursive;
+  font-size: 19px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 121, 19, 1) 0%,
+    rgba(8, 134, 52, 1) 0%,
+    rgba(8, 135, 55, 1) 20%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  transform: scale(1);
+  transition: scale 1s ease;
+  cursor: pointer;
+}
+.btn-reset:hover {
+  transform: scale(0.9);
+}
+#game-ground {
+  border: 3px solid yellow;
+  margin-bottom: 20px;
+}
+.btn-difficulty {
+  width: 100px;
+  height: 35px;
+  align-self: center;
+  font-family: 'Rubik Wet Paint', cursive;
+  font-size: 19px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-right: 20px;
+  transform: scale(1);
+  transition: scale 1s ease;
+}
+.btn-difficulty:hover {
+  transform: scale(0.9);
+}
+.btn-difficulty:last-child {
+  margin-right: 35px;
+}
+.easy {
+  background-color: #2abf22;
+}
+.medium {
+  background-color: #b7bf22;
+}
+.hard {
+  background-color: #e02716;
+}
+.difficulty-text {
+  font-size: 30px;
+}
+.score-table {
+  position: absolute;
+  top: 14%;
+  right: -42%;
+}
+.table-header {
+  padding: 10px 15px;
+  font-size: 22px;
+  color: #dfe30b;
+}
+.score-header {
+  padding: 0px 0px 5px 2px;
+  text-align: start;
+  color: #17c8cf;
+}
+.score-td {
+  padding: 0px 0px 5px 0px;
+  color: #44bd62;
+}
+.footer {
+  color: rgb(193, 255, 6);
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  font-size: 32px;
+  padding: 25px 0px;
+}
+a {
+  text-decoration: none;
+  color: rgb(193, 255, 6);
+}
